@@ -96,6 +96,13 @@ def build(tax, papers):
     stages = tax["stages"]
     objectives = tax["objectives"]
     kinds = tax["kinds"]
+    obj_emoji = {
+        "Confidentiality": "🔒",
+        "Integrity": "🧬",
+        "Availability": "⚡",
+        "Safety": "🚦",
+    }
+    stage_label = {s["id"]: s["label"] for s in stages}
 
     total = len(papers)
     with_code = sum(1 for p in papers if p.get("code"))
@@ -136,7 +143,9 @@ def build(tax, papers):
 
     # ── Matrix ────────────────────────────────────────────────────────────
     A("## The matrix\n")
-    header = "| Stage \\ Objective | " + " | ".join(objectives) + " |"
+    header = "| Stage \\ Objective | " + " | ".join(
+        f"{obj_emoji.get(o, '')} {o}" for o in objectives
+    ) + " |"
     sep = "|" + " --- |" * (len(objectives) + 1)
     A(header)
     A(sep)
@@ -155,6 +164,39 @@ def build(tax, papers):
     A("")
     A("<sub>Cells count papers by kind; click a cell to jump to its section. "
       "“—” = gap we haven't mapped yet (PRs very welcome).</sub>\n")
+
+    # ── ⭐ Papers with code (the highlight reel) ───────────────────────────
+    coded = sorted([p for p in papers if p.get("code")], key=sort_key)
+    A("## ⭐ Papers with code\n")
+    A("The reason this list exists — every row ships a public implementation.\n")
+    A("| Paper | Stage | Objectives | Venue | Code |")
+    A("| --- | --- | --- | --- | --- |")
+    for p in coded:
+        objs = " ".join(obj_emoji.get(o, o) for o in p.get("objectives", []))
+        emoji = kinds.get(p.get("kind"), {}).get("emoji", "•")
+        vy = " ".join(str(x) for x in [p.get("venue"), p.get("year")] if x)
+        A(
+            f"| {emoji} [{p['title']}]({p.get('paper') or p['code']}) "
+            f"| {stage_label.get(p['stage'], p['stage'])} | {objs} | {vy} "
+            f"| [💻]({p['code']}) |"
+        )
+    A("")
+
+    # ── Browse by domain ─────────────────────────────────────────────────
+    by_domain: dict[str, list] = {}
+    for p in papers:
+        for d in p.get("domains", []):
+            by_domain.setdefault(d, []).append(p)
+    A("## Browse by domain\n")
+    for d in sorted(by_domain):
+        items = sorted(by_domain[d], key=sort_key)
+        links = ", ".join(
+            f"[{p['title'].split(':')[0].split('(')[0].strip()}]"
+            f"({p.get('code') or p.get('paper') or p.get('project')})"
+            for p in items
+        )
+        A(f"- **`{d}`** ({len(items)}) — {links}")
+    A("")
 
     # ── Details ───────────────────────────────────────────────────────────
     A("## Papers by stage\n")

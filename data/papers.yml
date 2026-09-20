@@ -186,3 +186,127 @@ papers:
     domains: [gps, navigation, autonomous-driving]
     tldr: "Stealthy GPS spoofing that keeps the route plausible while steering a driver to a target."
     paper: "https://www.usenix.org/conference/usenixsecurity18/presentation/zeng"
+
+  # ── Inference: 3D point-cloud adversarial attacks (perception) ─────────────
+  - title: "Generating 3D Adversarial Point Clouds"
+    authors: "Xiang, Qi, Li"
+    venue: "CVPR"
+    year: 2019
+    stage: inference
+    objectives: [Integrity]
+    kind: attack
+    domains: [point-cloud, perception]
+    tldr: "Point shifting/adding/dropping attacks that fool PointNet-style 3D recognition."
+    paper: "https://arxiv.org/abs/1809.07016"
+    code: "https://github.com/xiangchong1/3d-adv-pc"
+
+  - title: "AdvPC: Transferable Adversarial Perturbations on 3D Point Clouds"
+    authors: "Hamdi, Rojas, Thabet, Ghanem"
+    venue: "ECCV"
+    year: 2020
+    stage: inference
+    objectives: [Integrity]
+    kind: attack
+    domains: [point-cloud, perception]
+    tldr: "Autoencoder-regularized perturbations that transfer across 3D models and survive defenses."
+    paper: "https://arxiv.org/abs/1912.00461"
+    code: "https://github.com/ajhamdi/AdvPC"
+
+  - title: "Shape-Invariant 3D Adversarial Point Clouds (SI-Adv)"
+    authors: "Huang, Dong, Chen, Su, Zhu"
+    venue: "CVPR"
+    year: 2022
+    stage: inference
+    objectives: [Integrity]
+    kind: attack
+    domains: [point-cloud, perception]
+    tldr: "A point-cloud sensitivity map yields imperceptible, on-surface adversarial perturbations."
+    paper: "https://arxiv.org/abs/2203.04041"
+    code: "https://github.com/shikiw/SI-Adv"
+
+  - title: "ShapeShifter: Robust Physical Adversarial Attack on Faster R-CNN"
+    authors: "Chen, Cornelius, Martin, Chau"
+    venue: "ECML-PKDD"
+    year: 2018
+    stage: inference
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [autonomous-driving, object-detection]
+    tldr: "First robust targeted physical attack on an object detector; stop signs mis-detected in drive-by tests."
+    paper: "https://arxiv.org/abs/1804.05810"
+    code: "https://github.com/shangtse/robust-physical-attack"
+
+  # ── Inference: attacks on embodied VLA models ──────────────────────────────
+  - title: "Exploring the Adversarial Vulnerabilities of Vision-Language-Action Models in Robotics"
+    authors: "Wang, Liu, Cheng, Zhou, Wang, et al."
+    venue: "arXiv"
+    year: 2024
+    stage: inference
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [vla, robot-manipulation, embodied-llm]
+    tldr: "A small camera-view patch degrades OpenVLA action accuracy, up to 100% task failure (digital+physical)."
+    paper: "https://arxiv.org/abs/2411.13587"
+    code: "https://github.com/William-wAng618/roboticAttack"
+
+  # ── Model training: physical backdoor via poisoning ────────────────────────
+  - title: "Physical Backdoor Attacks to Lane Detection Systems in Autonomous Driving"
+    authors: "Han, Xu, Liu, Zhang, Zhang, Zhang"
+    venue: "ACM MM"
+    year: 2022
+    stage: model-training
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [autonomous-driving, lane-detection, backdoor]
+    tldr: "Poison/clean-annotation backdoors trigger lane mis-detection via common objects (e.g. traffic cones)."
+    paper: "https://arxiv.org/abs/2203.00858"
+    project: "https://sites.google.com/view/lane-detection-attack/lda"
+
+  # ── Model deployment: model/weight extraction (confidentiality) ────────────
+  - title: "Neural Network Extraction Through Physical Side Channels"
+    authors: "Horváth, Picek, et al."
+    venue: "USENIX Security"
+    year: 2024
+    stage: model-deployment
+    objectives: [Confidentiality]
+    kind: attack
+    domains: [side-channel, model-extraction, edge]
+    tldr: "Recovers a deployed model's weights/architecture from physical (EM/power) side-channel leakage."
+    paper: "https://www.usenix.org/conference/usenixsecurity24/presentation/horvath"
+
+  # ── Inference: semantic DoS on the planner (availability) ──────────────────
+  - title: "Too Afraid to Drive: Semantic DoS Vulnerability in AD Planning (PlanFuzz)"
+    authors: "Wan, Shen, Chuang, Xia, Garcia, Ma, Chen"
+    venue: "NDSS"
+    year: 2022
+    stage: inference
+    objectives: [Availability, Safety]
+    kind: attack
+    domains: [autonomous-driving, planning]
+    tldr: "Benign-looking roadside objects freeze the planner (DoS); PlanFuzz finds 9 such vulnerabilities."
+    paper: "https://arxiv.org/abs/2201.04610"
+    project: "https://sites.google.com/view/secure-safe-ai/planfuzz"
+
+  # ── Inference: LiDAR spoofing defense (CARLO) ──────────────────────────────
+  - title: "Towards Robust LiDAR-based Perception: Black-box Sensor Attack and Countermeasures (CARLO)"
+    authors: "Sun, Cao, Chen, Mao"
+    venue: "USENIX Security"
+    year: 2020
+    stage: inference
+    objectives: [Integrity, Safety]
+    kind: defense
+    domains: [autonomous-driving, lidar]
+    tldr: "Occlusion/physics-based reasoning (CARLO) detects and rejects spoofed LiDAR obstacles."
+    paper: "https://arxiv.org/abs/2006.16974"
+
+  # ── System architecture: systematization of knowledge ──────────────────────
+  - title: "SoK: On the Semantic AI Security in Autonomous Driving"
+    authors: "Shen, Wang, Wan, Luo, Sato, Hu, ... Qiao, Chen"
+    venue: "arXiv"
+    year: 2022
+    stage: system-architecture
+    objectives: [Integrity, Safety]
+    kind: survey
+    domains: [autonomous-driving, sok]
+    tldr: "Systematizes semantic AD-AI attacks/defenses and ships PASS, an open evaluation platform."
+    paper: "https://arxiv.org/abs/2203.05314"
