@@ -36,6 +36,24 @@ so you never edit `README.md` directly.
 
 3. Commit **both** the YAML change and the regenerated `README.md`.
 
+## Add an open-source tool
+
+Tools (libraries, simulators, benchmarks, AV/robot stacks) live in
+[`data/tools.yml`](data/tools.yml) and render into their own matrix on the same
+axes. Same flow — edit the YAML, regenerate, commit both files:
+
+```yaml
+- name: "Adversarial Robustness Toolbox (ART)"
+  url: "https://github.com/Trusted-AI/adversarial-robustness-toolbox"
+  stage: evaluation                 # one stage id
+  objectives: [Integrity]           # one+ objectives
+  type: library                     # library | simulator | benchmark | stack
+  domains: [robustness, evaluation] # free-form tags (drive the Platform column)
+  tldr: "One sentence on what it does."
+```
+
+List only actively-usable open-source projects (something people can clone/run).
+
 ## Opening a pull request
 
 The full workflow, start to finish:

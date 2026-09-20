@@ -509,15 +509,104 @@ _Buses, components, APIs, networking across the cyber-physical system._
   [📄 paper](https://www.usenix.org/conference/usenixsecurity18/presentation/zeng)  
   `gps` `navigation` `autonomous-driving`
 
+## Open-source tools
+
+Reusable tooling on the **same axes** — to build, attack, defend, simulate and stress-test physical-AI systems.
+
+**Types** — 🧰 Library / framework · 🎮 Simulator / testbed · 📊 Benchmark / leaderboard · 🏗️ AV / robot stack
+
+| Stage \ Objective | 🔒 Confidentiality | 🧬 Integrity | ⚡ Availability | 🚦 Safety |
+| --- | --- | --- | --- | --- |
+| **Data collection** | — | — | — | — |
+| **Data processing** | — | — | — | — |
+| **Model construction** | — | — | — | — |
+| **Model training** | [🧰2](#tools-model-training--confidentiality) | [🧰1](#tools-model-training--integrity) | — | — |
+| **Model deployment** | — | — | — | — |
+| **Evaluation** | — | [🧰5 🎮1 📊2](#tools-evaluation--integrity) | — | [🎮4 📊1](#tools-evaluation--safety) |
+| **Inference** | — | — | — | [🏗️1](#tools-inference--safety) |
+| **System architecture** | [🧰1](#tools-system-architecture--confidentiality) | [🧰1](#tools-system-architecture--integrity) | — | [🏗️2](#tools-system-architecture--safety) |
+
+### Tools: Model training · Confidentiality
+
+- 🧰 ⚙️ **[Opacus](https://github.com/pytorch/opacus)** — Differentially private training for PyTorch models with minimal code changes.  
+  Library / framework · `privacy` `dp`
+- 🧰 ⚙️ **[TensorFlow Privacy](https://github.com/tensorflow/privacy)** — DP-SGD optimizers and privacy accounting for training with differential privacy.  
+  Library / framework · `privacy` `dp`
+
+### Tools: Model training · Integrity
+
+- 🧰 ⚙️ **[BackdoorBox](https://github.com/THUYimingLi/BackdoorBox)** — Unified toolbox of backdoor attacks and defenses for reproducible evaluation.  
+  Library / framework · `backdoor` `poisoning`
+
+### Tools: Evaluation · Integrity
+
+- 🧰 ⚙️ **[Adversarial Robustness Toolbox (ART)](https://github.com/Trusted-AI/adversarial-robustness-toolbox)** — Attacks, defenses and metrics for evasion/poisoning/extraction across ML frameworks.  
+  Library / framework · `robustness` `evaluation`
+- 🧰 ⚙️ **[alpha-beta-CROWN](https://github.com/Verified-Intelligence/alpha-beta-CROWN)** — Award-winning neural-network verifier for certified robustness bounds.  
+  Library / framework · `verification` `robustness`
+- 🧰 ⚙️ **[AutoAttack](https://github.com/fra31/auto-attack)** — Parameter-free ensemble of attacks; the de-facto standard for honest robustness numbers.  
+  Library / framework · `robustness` `evaluation`
+- 🎮 🚗 **[CARLA](https://github.com/carla-simulator/carla)** — Open urban-driving simulator for scenario/red-team testing of AV stacks.  
+  Simulator / testbed · `autonomous-driving` `simulation`
+- 🧰 ⚙️ **[CleverHans](https://github.com/cleverhans-lab/cleverhans)** — Reference implementations of adversarial attacks for benchmarking model robustness.  
+  Library / framework · `robustness` `evaluation`
+- 🧰 ⚙️ **[Foolbox](https://github.com/bethgelab/foolbox)** — Fast library of gradient/decision-based adversarial attacks for PyTorch/TF/JAX.  
+  Library / framework · `robustness` `evaluation`
+- 📊 🤖 **[LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO)** — Manipulation benchmark widely used to evaluate (and attack) VLA policies.  
+  Benchmark / leaderboard · `vla` `robot-manipulation` `benchmark`
+- 📊 ⚙️ **[RobustBench](https://github.com/RobustBench/robustbench)** — Standardized adversarial-robustness leaderboard and Model Zoo.  
+  Benchmark / leaderboard · `robustness` `benchmark`
+
+### Tools: Evaluation · Safety
+
+- 🎮 🚗 **[CARLA](https://github.com/carla-simulator/carla)** — Open urban-driving simulator for scenario/red-team testing of AV stacks.  
+  Simulator / testbed · `autonomous-driving` `simulation`
+- 🎮 🦾 **[Gazebo (gz-sim)](https://github.com/gazebosim/gz-sim)** — Standard ROS robotics simulator for testing control and sensor pipelines.  
+  Simulator / testbed · `robot` `simulation`
+- 📊 🤖 **[LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO)** — Manipulation benchmark widely used to evaluate (and attack) VLA policies.  
+  Benchmark / leaderboard · `vla` `robot-manipulation` `benchmark`
+- 🎮 🚁 **[Microsoft AirSim](https://github.com/microsoft/AirSim)** — High-fidelity drone/car simulator (Unreal) for perception and control experiments.  
+  Simulator / testbed · `drone` `uav` `simulation`
+- 🎮 🦾 **[NVIDIA Isaac Lab](https://github.com/isaac-sim/IsaacLab)** — GPU robot-learning framework on Isaac Sim for training and stress-testing policies.  
+  Simulator / testbed · `robot-manipulation` `simulation`
+
+### Tools: Inference · Safety
+
+- 🏗️ 🚗 **[openpilot](https://github.com/commaai/openpilot)** — Production-grade open ADAS — real-world target for lane-keeping / perception attacks.  
+  AV / robot stack · `autonomous-driving` `adas` `stack`
+
+### Tools: System architecture · Confidentiality
+
+- 🧰 🦾 **[SROS2 (Secure ROS 2)](https://github.com/ros2/sros2)** — Tools to add authentication, encryption and access control to ROS 2 graphs.  
+  Library / framework · `robot` `ros` `security`
+
+### Tools: System architecture · Integrity
+
+- 🧰 🦾 **[SROS2 (Secure ROS 2)](https://github.com/ros2/sros2)** — Tools to add authentication, encryption and access control to ROS 2 graphs.  
+  Library / framework · `robot` `ros` `security`
+
+### Tools: System architecture · Safety
+
+- 🏗️ 🚗 **[Autoware](https://github.com/autowarefoundation/autoware)** — ROS 2-based open AV stack used as a realistic evaluation platform.  
+  AV / robot stack · `autonomous-driving` `stack`
+- 🏗️ 🚗 **[Baidu Apollo](https://github.com/ApolloAuto/apollo)** — Full open AV stack — a common target/testbed for AD security research.  
+  AV / robot stack · `autonomous-driving` `stack`
+
 ## Stats
 
 - **42** papers — 🗡️ 34 attacks, 🛡️ 6 defenses.
 - **20/42** (48%) ship public **code**.
 - By platform — 🚗 Autonomous vehicle 23 · 🚁 Drone / UAV 5 · 🦾 Robot 1 · 🤖 Embodied LLM / VLA 6 · ⚙️ Cross-cutting 7.
+- Plus **18** open-source tools.
 
 ## Contributing
 
-Add a paper by editing [`data/papers.yml`](data/papers.yml) and running `python3 scripts/generate_readme.py`. See [CONTRIBUTING.md](CONTRIBUTING.md). Prioritizing papers whose code is public is the whole point — include the `code:` field whenever a repo exists.
+Contributions are welcome — this list is only as good as the community keeps it. **Two ways in:**
+
+- 💬 **Suggest a paper** (no git needed): open a [paper-suggestion issue](../../issues/new?template=suggest-a-paper.yml) with the title, venue and links.
+- 🔧 **Open a pull request**: add your entry to [`data/papers.yml`](data/papers.yml) (or a tool to [`data/tools.yml`](data/tools.yml)), run `python3 scripts/generate_readme.py`, and commit **both** the YAML and the regenerated `README.md`. CI fails if the README is stale.
+
+House rules: prioritize **papers with public code**, keep entries in scope (security/safety of physical or embodied AI), and never edit `README.md` by hand. Full guide → [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 

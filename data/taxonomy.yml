@@ -71,3 +71,11 @@ categories:
 # Overlap resolution order (most specific first): a VLM-driven robot is VLA, a
 # drone beats a generic robot, AV is broad so it comes late, general is last.
 category_priority: [vla, drone, robot, av, general]
+
+# Type of open-source tool (data/tools.yml). Drives the count badges in the
+# tools matrix, analogous to `kinds` for papers.
+tool_types:
+  library:   { emoji: "🧰",  label: Library / framework }
+  simulator: { emoji: "🎮",  label: Simulator / testbed }
+  benchmark: { emoji: "📊",  label: Benchmark / leaderboard }
+  stack:     { emoji: "🏗️",  label: AV / robot stack }

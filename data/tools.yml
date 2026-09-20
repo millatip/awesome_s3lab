@@ -1,0 +1,160 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Open-source TOOLS for security/safety of Physical AI, on the same axes as the
+# papers (pipeline stage x security objective).
+#
+# Required: name, url (repo), stage, objectives, type.
+#   type   : one of {library, simulator, benchmark, stack} (see data/taxonomy.yml)
+#   stage  : one stage id from data/taxonomy.yml
+#   domains: free-form tags (also drive the inferred Platform column)
+# Only list actively-usable open-source projects (a repo people can `git clone`).
+# ─────────────────────────────────────────────────────────────────────────────
+
+tools:
+  # ── Adversarial robustness libraries (cross-cutting) ───────────────────────
+  - name: "Adversarial Robustness Toolbox (ART)"
+    url: "https://github.com/Trusted-AI/adversarial-robustness-toolbox"
+    stage: evaluation
+    objectives: [Integrity]
+    type: library
+    domains: [robustness, evaluation]
+    tldr: "Attacks, defenses and metrics for evasion/poisoning/extraction across ML frameworks."
+
+  - name: "Foolbox"
+    url: "https://github.com/bethgelab/foolbox"
+    stage: evaluation
+    objectives: [Integrity]
+    type: library
+    domains: [robustness, evaluation]
+    tldr: "Fast library of gradient/decision-based adversarial attacks for PyTorch/TF/JAX."
+
+  - name: "CleverHans"
+    url: "https://github.com/cleverhans-lab/cleverhans"
+    stage: evaluation
+    objectives: [Integrity]
+    type: library
+    domains: [robustness, evaluation]
+    tldr: "Reference implementations of adversarial attacks for benchmarking model robustness."
+
+  - name: "AutoAttack"
+    url: "https://github.com/fra31/auto-attack"
+    stage: evaluation
+    objectives: [Integrity]
+    type: library
+    domains: [robustness, evaluation]
+    tldr: "Parameter-free ensemble of attacks; the de-facto standard for honest robustness numbers."
+
+  - name: "RobustBench"
+    url: "https://github.com/RobustBench/robustbench"
+    stage: evaluation
+    objectives: [Integrity]
+    type: benchmark
+    domains: [robustness, benchmark]
+    tldr: "Standardized adversarial-robustness leaderboard and Model Zoo."
+
+  - name: "alpha-beta-CROWN"
+    url: "https://github.com/Verified-Intelligence/alpha-beta-CROWN"
+    stage: evaluation
+    objectives: [Integrity]
+    type: library
+    domains: [verification, robustness]
+    tldr: "Award-winning neural-network verifier for certified robustness bounds."
+
+  # ── Privacy / confidentiality ──────────────────────────────────────────────
+  - name: "TensorFlow Privacy"
+    url: "https://github.com/tensorflow/privacy"
+    stage: model-training
+    objectives: [Confidentiality]
+    type: library
+    domains: [privacy, dp]
+    tldr: "DP-SGD optimizers and privacy accounting for training with differential privacy."
+
+  - name: "Opacus"
+    url: "https://github.com/pytorch/opacus"
+    stage: model-training
+    objectives: [Confidentiality]
+    type: library
+    domains: [privacy, dp]
+    tldr: "Differentially private training for PyTorch models with minimal code changes."
+
+  # ── Backdoor / poisoning ───────────────────────────────────────────────────
+  - name: "BackdoorBox"
+    url: "https://github.com/THUYimingLi/BackdoorBox"
+    stage: model-training
+    objectives: [Integrity]
+    type: library
+    domains: [backdoor, poisoning]
+    tldr: "Unified toolbox of backdoor attacks and defenses for reproducible evaluation."
+
+  # ── Simulators / testbeds ──────────────────────────────────────────────────
+  - name: "CARLA"
+    url: "https://github.com/carla-simulator/carla"
+    stage: evaluation
+    objectives: [Safety, Integrity]
+    type: simulator
+    domains: [autonomous-driving, simulation]
+    tldr: "Open urban-driving simulator for scenario/red-team testing of AV stacks."
+
+  - name: "Microsoft AirSim"
+    url: "https://github.com/microsoft/AirSim"
+    stage: evaluation
+    objectives: [Safety]
+    type: simulator
+    domains: [drone, uav, simulation]
+    tldr: "High-fidelity drone/car simulator (Unreal) for perception and control experiments."
+
+  - name: "NVIDIA Isaac Lab"
+    url: "https://github.com/isaac-sim/IsaacLab"
+    stage: evaluation
+    objectives: [Safety]
+    type: simulator
+    domains: [robot-manipulation, simulation]
+    tldr: "GPU robot-learning framework on Isaac Sim for training and stress-testing policies."
+
+  - name: "LIBERO"
+    url: "https://github.com/Lifelong-Robot-Learning/LIBERO"
+    stage: evaluation
+    objectives: [Safety, Integrity]
+    type: benchmark
+    domains: [vla, robot-manipulation, benchmark]
+    tldr: "Manipulation benchmark widely used to evaluate (and attack) VLA policies."
+
+  - name: "Gazebo (gz-sim)"
+    url: "https://github.com/gazebosim/gz-sim"
+    stage: evaluation
+    objectives: [Safety]
+    type: simulator
+    domains: [robot, simulation]
+    tldr: "Standard ROS robotics simulator for testing control and sensor pipelines."
+
+  # ── System architecture / stacks ───────────────────────────────────────────
+  - name: "SROS2 (Secure ROS 2)"
+    url: "https://github.com/ros2/sros2"
+    stage: system-architecture
+    objectives: [Confidentiality, Integrity]
+    type: library
+    domains: [robot, ros, security]
+    tldr: "Tools to add authentication, encryption and access control to ROS 2 graphs."
+
+  - name: "Baidu Apollo"
+    url: "https://github.com/ApolloAuto/apollo"
+    stage: system-architecture
+    objectives: [Safety]
+    type: stack
+    domains: [autonomous-driving, stack]
+    tldr: "Full open AV stack — a common target/testbed for AD security research."
+
+  - name: "Autoware"
+    url: "https://github.com/autowarefoundation/autoware"
+    stage: system-architecture
+    objectives: [Safety]
+    type: stack
+    domains: [autonomous-driving, stack]
+    tldr: "ROS 2-based open AV stack used as a realistic evaluation platform."
+
+  - name: "openpilot"
+    url: "https://github.com/commaai/openpilot"
+    stage: inference
+    objectives: [Safety]
+    type: stack
+    domains: [autonomous-driving, adas, stack]
+    tldr: "Production-grade open ADAS — real-world target for lane-keeping / perception attacks."
