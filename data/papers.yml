@@ -310,3 +310,145 @@ papers:
     domains: [autonomous-driving, sok]
     tldr: "Systematizes semantic AD-AI attacks/defenses and ships PASS, an open evaluation platform."
     paper: "https://arxiv.org/abs/2203.05314"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # Big-Four security venues (IEEE S&P, USENIX Security, ACM CCS, NDSS), 2025-2026
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  # ── IEEE S&P ───────────────────────────────────────────────────────────────
+  - title: "Investigating Physical Latency Attacks against Camera-based Perception (DetStorm)"
+    authors: ""
+    venue: "IEEE S&P"
+    year: 2025
+    stage: inference
+    objectives: [Availability, Safety]
+    kind: attack
+    domains: [autonomous-driving, camera, latency]
+    tldr: "Induces perception latency so the AV reacts too late — a real-time availability attack on the camera stack."
+    code: "https://github.com/purseclab/DetStorm"
+
+  # ── USENIX Security ─────────────────────────────────────────────────────────
+  - title: "From Threat to Trust: Attention Mechanisms for Attacks & Defenses in Cooperative Perception (SOMBRA / LUCIA)"
+    authors: "Wang, et al."
+    venue: "USENIX Security"
+    year: 2025
+    stage: system-architecture
+    objectives: [Integrity, Availability, Safety]
+    kind: defense
+    domains: [cooperative-perception, v2x, autonomous-driving]
+    tldr: "SOMBRA removes objects from V2X-fused perception (99% ASR); LUCIA is a trust-aware attention defense."
+    paper: "https://www.usenix.org/conference/usenixsecurity25/presentation/wang-chenyi"
+    code: "https://zenodo.org/records/16740921"
+
+  - title: "Invisible but Detected: Physical Adversarial Shadow Attack and Defense on LiDAR Object Detection"
+    authors: "Kobayashi, Nomoto, Tanaka, Tsuruoka, Mori"
+    venue: "USENIX Security"
+    year: 2025
+    stage: inference
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [autonomous-driving, lidar]
+    tldr: "A physical 'shadow' cast into the point cloud fools LiDAR detection; paper also proposes a detector."
+    code: "https://zenodo.org/records/15120571"
+
+  - title: "The Ghost Navigator: Revisiting the Hidden Vulnerability of Localization in Autonomous Driving (MSAF)"
+    authors: ""
+    venue: "USENIX Security"
+    year: 2025
+    stage: inference
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [autonomous-driving, localization]
+    tldr: "Exposes localization/fusion vulnerabilities and releases MSAF, a multi-sensor anti-spoofing fusion defense."
+    code: "https://github.com/msafdemo/MSAF"
+
+  - title: "Seeing is Deceiving: Vulnerability Analysis of LiDAR-Based AD to Mirror-Induced Perception Failures"
+    authors: ""
+    venue: "USENIX Security"
+    year: 2026
+    stage: data-collection
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [autonomous-driving, lidar]
+    tldr: "Ordinary mirrors bend LiDAR returns to create/erase obstacles — a hardware-free perception attack."
+    paper: "https://arxiv.org/abs/2509.17253"
+
+  # ── ACM CCS ─────────────────────────────────────────────────────────────────
+  - title: "Asymmetry Vulnerability and Physical Attacks on Online Map Construction for Autonomous Driving"
+    authors: ""
+    venue: "ACM CCS"
+    year: 2025
+    stage: inference
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [autonomous-driving, hd-map, perception]
+    tldr: "Physical patches exploit an asymmetry in online HD-map construction to corrupt the driving map."
+    paper: "https://dl.acm.org/doi/10.1145/3719027.3765092"
+    code: "https://github.com/kyrie-louy/physical-online-map-attack"
+
+  - title: "ControlLoc: Physical-World Hijacking Attack on Camera-based Perception in Autonomous Driving"
+    authors: "Zhu, Sato, Chen, et al."
+    venue: "ACM CCS"
+    year: 2025
+    stage: inference
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [autonomous-driving, camera, object-detection]
+    tldr: "A physical patch hijacks object localization to place/shift detections where the attacker wants."
+    paper: "https://dl.acm.org/doi/10.1145/3719027.3744842"
+
+  - title: "Towards Real-Time Defense against Object-Based LiDAR Attacks in Autonomous Driving"
+    authors: ""
+    venue: "ACM CCS"
+    year: 2025
+    stage: inference
+    objectives: [Integrity, Safety]
+    kind: defense
+    domains: [autonomous-driving, lidar]
+    tldr: "First real-time, model- and attack-agnostic defense against physical object-based LiDAR spoofing."
+    paper: "https://doi.org/10.1145/3719027.3765227"
+
+  # ── NDSS ────────────────────────────────────────────────────────────────────
+  - title: "FlyTrap: Physical Distance-Pulling Attack Toward Camera-based Autonomous Target Tracking"
+    authors: ""
+    venue: "NDSS"
+    year: 2026
+    stage: inference
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [drone, uav, visual-tracking]
+    tldr: "A physical adversarial pattern lures a tracking drone into pulling dangerously close to a target."
+    code: "https://github.com/ASGuard-UCI/FlyTrap"
+
+  - title: "On the Realism of LiDAR Spoofing Attacks against AD Vehicle at High Speed and Long Distance"
+    authors: "Wang, Xie, Sato, Luo, Xu, Chen"
+    venue: "NDSS"
+    year: 2025
+    stage: data-collection
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [autonomous-driving, lidar]
+    tldr: "Moving-vehicle auto-aiming spoofer removes obstacles at 60 km/h from 110 m (>=96% ASR)."
+    paper: "https://www.ndss-symposium.org/ndss-paper/on-the-realism-of-lidar-spoofing-attacks-against-autonomous-driving-vehicle-at-high-speed-and-long-distance/"
+
+  - title: "PhantomLiDAR: Cross-modality Signal Injection Attacks against LiDAR"
+    authors: "Jin, et al."
+    venue: "NDSS"
+    year: 2025
+    stage: data-collection
+    objectives: [Integrity, Availability, Safety]
+    kind: attack
+    domains: [autonomous-driving, lidar, sensor]
+    tldr: "Electromagnetic (cross-modality) injection manipulates LiDAR points without any laser transmitter."
+    paper: "https://arxiv.org/abs/2409.17907"
+
+  - title: "Revisiting Physical-World Adversarial Attack on Traffic Sign Recognition: A Commercial Systems Perspective"
+    authors: "Wang, Xie, Sato, Luo, Xu, Chen"
+    venue: "NDSS"
+    year: 2025
+    stage: inference
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [autonomous-driving, traffic-sign]
+    tldr: "First large-scale measurement of physical TSR attacks on commercial systems — reliable but not generalizable."
+    paper: "https://arxiv.org/abs/2409.09860"
