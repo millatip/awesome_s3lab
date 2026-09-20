@@ -36,6 +36,62 @@ so you never edit `README.md` directly.
 
 3. Commit **both** the YAML change and the regenerated `README.md`.
 
+## Opening a pull request
+
+The full workflow, start to finish:
+
+1. **Fork** this repo (top-right on GitHub) and **clone** your fork:
+
+   ```bash
+   git clone https://github.com/<you>/awesome_s3lab.git
+   cd awesome_s3lab
+   pip install pyyaml
+   ```
+
+2. **Branch** off `main` with a short, descriptive name:
+
+   ```bash
+   git checkout -b add-ndss25-drone-papers
+   ```
+
+3. **Edit the data**, not the README: add entries to
+   [`data/papers.yml`](data/papers.yml) (see the schema above).
+
+4. **Regenerate** and eyeball the result:
+
+   ```bash
+   python3 scripts/generate_readme.py
+   ```
+
+   The script also validates your entry (stage/objective/kind must exist) and
+   fails loudly if something is off.
+
+5. **Commit both files** together — the YAML and the regenerated `README.md`:
+
+   ```bash
+   git add data/papers.yml README.md
+   git commit -m "Add 3 NDSS'25 drone sensor-spoofing papers"
+   git push -u origin add-ndss25-drone-papers
+   ```
+
+6. **Open the PR** against `millatip/awesome_s3lab:main`. The PR template's
+   checklist appears automatically — tick each box.
+
+7. **CI runs** [`.github/workflows/check-readme.yml`](.github/workflows/check-readme.yml):
+   it re-runs the generator and **fails if `README.md` is stale** (i.e. you edited
+   the YAML but forgot to regenerate). If it goes red, run step 4 again, commit the
+   updated `README.md`, and push — the PR updates itself.
+
+8. A maintainer reviews for scope, correct links, and no duplicates, then merges.
+
+**Tips**
+
+- Keep one topic per PR (e.g. "drone papers" or "fix a broken link") — small PRs
+  review fast.
+- Verify each `code:` link opens before you push: `curl -sL -o /dev/null -w '%{http_code}\n' <url>` should print `200`.
+- Not comfortable with git? Open an **issue** with the paper title, venue/year, and
+  links, and someone will add it.
+
 ## Rules of thumb
 
 - **Code is the point.** Add the `code:` field only when a public implementation
