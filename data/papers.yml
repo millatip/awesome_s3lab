@@ -1,0 +1,188 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Papers in Security of Physical AI.
+#
+# One entry per paper. Required: title, year, venue, stage, objectives, kind.
+# `stage`      : an id from data/taxonomy.yml (single stage — the *primary* one).
+# `objectives` : list from {Confidentiality, Integrity, Availability, Safety}.
+# `kind`       : one of {attack, defense, benchmark, survey}.
+# `code`       : include ONLY if a public implementation exists (this is the
+#                whole point of the list — papers-with-code are highlighted).
+# `project`    : project/website page when there is no code repo.
+#
+# Keep entries sorted newest-first within a stage is not required — the
+# generator sorts. When in doubt about code availability, leave `code` out.
+# ─────────────────────────────────────────────────────────────────────────────
+
+papers:
+  # ── Inference: physical-world perturbation attacks on perception ────────────
+  - title: "Robust Physical-World Attacks on Deep Learning Visual Classification (RP2)"
+    authors: "Eykholt, Evtimov, Fernandes, Li, Rahmati, Xiao, Prakash, Kohno, Song"
+    venue: "CVPR"
+    year: 2018
+    stage: inference
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [autonomous-driving, perception]
+    tldr: "Sticker perturbations on a stop sign cause targeted misclassification from a moving vehicle."
+    paper: "https://arxiv.org/abs/1707.08945"
+    code: "https://github.com/evtimovi/robust_physical_perturbations"
+
+  - title: "Adversarial Sensor Attack on LiDAR-based Perception in Autonomous Driving"
+    authors: "Cao, Xiao, Cyr, Zhou, Park, Rampazzi, Chen, Fu, Mao"
+    venue: "ACM CCS"
+    year: 2019
+    stage: inference
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [autonomous-driving, lidar]
+    tldr: "First LiDAR spoofing attack that injects fake close-range obstacles into AV perception."
+    paper: "https://arxiv.org/abs/1907.06826"
+    project: "https://sites.google.com/view/av-ioat-sec/adv-lidar-attack"
+
+  - title: "Invisible for both Camera and LiDAR: Security of Multi-Sensor Fusion (MSF-ADV)"
+    authors: "Cao, Wang, Xiao, Yang, Fang, Yang, Chen, Liu, Li"
+    venue: "IEEE S&P"
+    year: 2021
+    stage: inference
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [autonomous-driving, sensor-fusion, lidar]
+    tldr: "A single 3D adversarial object evades camera+LiDAR fusion → 100% collision in simulation."
+    paper: "https://arxiv.org/abs/2106.09249"
+    code: "https://github.com/ASGuard-UCI/MSF-ADV"
+
+  - title: "Dirty Road Can Attack: Security of Automated Lane Centering (DRP)"
+    authors: "Sato, Shen, Wang, Jia, Lin, Chen"
+    venue: "USENIX Security"
+    year: 2021
+    stage: inference
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [autonomous-driving, lane-keeping]
+    tldr: "A malicious road patch steers a production lane-centering system off its lane."
+    paper: "https://www.usenix.org/conference/usenixsecurity21/presentation/sato"
+    code: "https://github.com/ASGuard-UCI/DRP-attack"
+
+  # ── Data collection: sensor / transduction attacks ─────────────────────────
+  - title: "Rocking Drones with Intentional Sound Noise on Gyroscopic Sensors"
+    authors: "Son, Shin, Kim, Park, Noh, Choi, Choi, Kim"
+    venue: "USENIX Security"
+    year: 2015
+    stage: data-collection
+    objectives: [Availability, Safety]
+    kind: attack
+    domains: [drone, mems, sensor]
+    tldr: "Resonant acoustic noise saturates MEMS gyroscopes and crashes drones out of the sky."
+    paper: "https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/son"
+
+  - title: "Poltergeist: Acoustic Adversarial ML against Cameras and Computer Vision"
+    authors: "Ji, Zhang, Ji, Chen, Zhang, Cheng, Xu"
+    venue: "IEEE S&P"
+    year: 2021
+    stage: data-collection
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [autonomous-driving, camera, sensor]
+    tldr: "Acoustic injection into image-stabilization blurs frames to create/hide/move detected objects."
+    paper: "https://ieeexplore.ieee.org/document/9519387"
+
+  # ── Model training: poisoning / backdoors ──────────────────────────────────
+  - title: "TrojDRL: Trojan Attacks on Deep Reinforcement Learning Agents"
+    authors: "Kiourti, Wardega, Jha, Li"
+    venue: "DAC"
+    year: 2020
+    stage: model-training
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [reinforcement-learning, robot-control]
+    tldr: "Backdoors an RL policy via ~0.025% data + in-band reward poisoning; trigger → attacker action."
+    paper: "https://arxiv.org/abs/1903.06638"
+    code: "https://github.com/pkiourti/rl_backdoor"
+
+  # ── Inference: embodied LLM / VLA jailbreaks ───────────────────────────────
+  - title: "Jailbreaking LLM-Controlled Robots (RoboPAIR)"
+    authors: "Robey, Ravichandran, Kumar, Hassani, Pappas"
+    venue: "arXiv"
+    year: 2024
+    stage: inference
+    objectives: [Safety, Integrity]
+    kind: attack
+    domains: [embodied-llm, robot, autonomous-driving]
+    tldr: "Automated jailbreak elicits harmful physical actions from LLM-controlled robots (up to 100% ASR)."
+    paper: "https://arxiv.org/abs/2410.13691"
+    project: "https://robopair.org"
+
+  - title: "BadRobot: Jailbreaking Embodied LLM Agents in the Physical World"
+    authors: "Zhang, Zhang, Ma, Chen, Huang, Zhang, et al."
+    venue: "ICLR"
+    year: 2025
+    stage: inference
+    objectives: [Safety, Integrity]
+    kind: attack
+    domains: [embodied-llm, robot-manipulation]
+    tldr: "Voice/text jailbreaks push embodied LLM agents into physically harmful manipulation actions."
+    paper: "https://arxiv.org/abs/2407.20242"
+    project: "https://embodied-llms-safety.github.io"
+
+  # ── Model training: privacy / confidentiality defenses ─────────────────────
+  - title: "Deep Learning with Differential Privacy (DP-SGD)"
+    authors: "Abadi, Chu, Goodfellow, McMahan, Mironov, Talwar, Zhang"
+    venue: "ACM CCS"
+    year: 2016
+    stage: model-training
+    objectives: [Confidentiality]
+    kind: defense
+    domains: [privacy, training]
+    tldr: "Gradient clipping + noise gives per-example DP guarantees against training-data extraction."
+    paper: "https://arxiv.org/abs/1607.00133"
+    code: "https://github.com/tensorflow/privacy"
+
+  # ── Inference / training: certified robustness defense ─────────────────────
+  - title: "Certified Adversarial Robustness via Randomized Smoothing"
+    authors: "Cohen, Rosenfeld, Kolter"
+    venue: "ICML"
+    year: 2019
+    stage: inference
+    objectives: [Integrity]
+    kind: defense
+    domains: [robustness, perception]
+    tldr: "Turns any classifier into one with a certified L2 robustness radius via Gaussian smoothing."
+    paper: "https://arxiv.org/abs/1902.02918"
+    code: "https://github.com/locuslab/smoothing"
+
+  # ── Model training: Byzantine-robust aggregation defense ───────────────────
+  - title: "Machine Learning with Adversaries: Byzantine-Tolerant Gradient Descent (Krum)"
+    authors: "Blanchard, El Mhamdi, Guerraoui, Stainer"
+    venue: "NeurIPS"
+    year: 2017
+    stage: model-training
+    objectives: [Integrity, Availability]
+    kind: defense
+    domains: [distributed-training, federated]
+    tldr: "Aggregation rule that tolerates Byzantine workers poisoning distributed/federated training."
+    paper: "https://papers.nips.cc/paper/2017/hash/f4b9ec30ad9f68f89b29639786cb62ef-Abstract.html"
+
+  # ── Evaluation: simulation / safety testing tooling ────────────────────────
+  - title: "CARLA: An Open Urban Driving Simulator"
+    authors: "Dosovitskiy, Ros, Codevilla, Lopez, Koltun"
+    venue: "CoRL"
+    year: 2017
+    stage: evaluation
+    objectives: [Safety]
+    kind: benchmark
+    domains: [autonomous-driving, simulation]
+    tldr: "Open simulator widely used to red-team and safety-test AV stacks under rare/adversarial scenarios."
+    paper: "https://arxiv.org/abs/1711.03938"
+    code: "https://github.com/carla-simulator/carla"
+
+  # ── System architecture: sensor/bus spoofing ──────────────────────────────
+  - title: "All Your GPS Are Belong To Us: Towards Stealthy Manipulation of Road Navigation Systems"
+    authors: "Zeng, Liu, Cui, Miao, Yang, Su, Wang, Xu, Yang, Qian"
+    venue: "USENIX Security"
+    year: 2018
+    stage: system-architecture
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [gps, navigation, autonomous-driving]
+    tldr: "Stealthy GPS spoofing that keeps the route plausible while steering a driver to a target."
+    paper: "https://www.usenix.org/conference/usenixsecurity18/presentation/zeng"

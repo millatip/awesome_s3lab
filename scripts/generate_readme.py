@@ -1,0 +1,223 @@
+#!/usr/bin/env python3
+"""Regenerate README.md from data/taxonomy.yml + data/papers.yml.
+
+Single source of truth: edit the YAML, run this script, commit the README.
+The matrix cells link down into per-(stage x objective) detail sections, so
+the overview and the paper list can never drift apart.
+
+    python3 scripts/generate_readme.py
+
+Requires: PyYAML  (pip install pyyaml)
+"""
+from __future__ import annotations
+
+import re
+import sys
+from datetime import date
+from pathlib import Path
+
+import yaml
+
+ROOT = Path(__file__).resolve().parent.parent
+DATA = ROOT / "data"
+
+
+def github_slug(text: str) -> str:
+    """Replicate GitHub's heading -> anchor algorithm.
+
+    lowercase; drop everything except [a-z0-9], hyphen, underscore and space;
+    spaces -> hyphens. (No dedup handling — our headings are unique.)
+    """
+    text = text.strip().lower()
+    text = re.sub(r"[^\w\- ]", "", text, flags=re.UNICODE)  # \w keeps letters/digits/_
+    text = re.sub(r"[^a-z0-9_\- ]", "", text)  # ...but restrict letters to ascii
+    return text.replace(" ", "-")
+
+
+def load():
+    tax = yaml.safe_load((DATA / "taxonomy.yml").read_text())
+    papers = yaml.safe_load((DATA / "papers.yml").read_text())["papers"]
+    return tax, papers
+
+
+def cell_papers(papers, stage_id, objective):
+    return [
+        p for p in papers
+        if p["stage"] == stage_id and objective in p.get("objectives", [])
+    ]
+
+
+def kind_counts(entries, kinds):
+    """Ordered '🗡️2 🛡️1' string for the kinds present in `entries`."""
+    parts = []
+    for k, meta in kinds.items():
+        n = sum(1 for e in entries if e.get("kind") == k)
+        if n:
+            parts.append(f"{meta['emoji']}{n}")
+    return " ".join(parts)
+
+
+def sort_key(p):
+    # newest first, then title
+    return (-int(p.get("year", 0)), p.get("title", ""))
+
+
+def render_entry(p, kinds):
+    emoji = kinds.get(p.get("kind"), {}).get("emoji", "•")
+    title = p["title"]
+    link = p.get("code") or p.get("paper") or p.get("project") or ""
+    head = f"[{title}]({link})" if link else title
+    line = [f"- {emoji} **{head}**"]
+    if p.get("tldr"):
+        line.append(f" — {p['tldr']}")
+    line.append("  ")  # markdown line break
+    meta = []
+    authors = p.get("authors")
+    venue_year = " ".join(str(x) for x in [p.get("venue"), p.get("year")] if x)
+    byline = ". ".join(x for x in [f"_{authors}_" if authors else "", venue_year] if x)
+    if byline:
+        meta.append(byline)
+    links = []
+    if p.get("paper"):
+        links.append(f"[📄 paper]({p['paper']})")
+    if p.get("code"):
+        links.append(f"[💻 code]({p['code']})")
+    if p.get("project"):
+        links.append(f"[🌐 project]({p['project']})")
+    if links:
+        meta.append(" · ".join(links))
+    if p.get("domains"):
+        meta.append(" ".join(f"`{d}`" for d in p["domains"]))
+    line.append("\n  " + "  \n  ".join(meta))
+    return "".join(line)
+
+
+def build(tax, papers):
+    stages = tax["stages"]
+    objectives = tax["objectives"]
+    kinds = tax["kinds"]
+
+    total = len(papers)
+    with_code = sum(1 for p in papers if p.get("code"))
+    n_attack = sum(1 for p in papers if p.get("kind") == "attack")
+    n_defense = sum(1 for p in papers if p.get("kind") == "defense")
+
+    out = []
+    A = out.append
+
+    # ── Header ────────────────────────────────────────────────────────────
+    A("# Awesome Security of Physical AI [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)\n")
+    A(
+        "> A curated, **papers-with-code** map of security & safety research for "
+        "**Physical AI** — autonomous vehicles, drones, robots, and embodied "
+        "LLM/VLA agents — organized as a **pipeline stage × security objective** matrix.\n"
+    )
+    A(
+        f"![papers](https://img.shields.io/badge/papers-{total}-blue) "
+        f"![with code](https://img.shields.io/badge/with%20code-{with_code}-brightgreen) "
+        "![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)\n"
+    )
+
+    # ── Legend ────────────────────────────────────────────────────────────
+    A("## How to read this list\n")
+    A(
+        "Every paper sits at one **pipeline stage** (row) and targets one or more "
+        "**security objectives** (column). Each matrix cell shows how many papers "
+        "of each kind land there and links to the details below.\n"
+    )
+    A("**Kinds** — " + " · ".join(f"{m['emoji']} {m['label']}" for m in kinds.values()) + "\n")
+    A(
+        "**Objectives** — 🔒 Confidentiality (don't leak model/data) · "
+        "🧬 Integrity (don't get fooled/poisoned) · "
+        "⚡ Availability (stay up under DoS) · "
+        "🚦 Safety (don't take unsafe physical action)\n"
+    )
+    A("**Links** — 📄 paper · 💻 code · 🌐 project page\n")
+
+    # ── Matrix ────────────────────────────────────────────────────────────
+    A("## The matrix\n")
+    header = "| Stage \\ Objective | " + " | ".join(objectives) + " |"
+    sep = "|" + " --- |" * (len(objectives) + 1)
+    A(header)
+    A(sep)
+    for s in stages:
+        row = [f"**{s['label']}**"]
+        for o in objectives:
+            entries = cell_papers(papers, s["id"], o)
+            if entries:
+                counts = kind_counts(entries, kinds) or str(len(entries))
+                anchor = github_slug(f"{s['label']} · {o}")
+                row.append(f"[{counts}](#{anchor})")
+            else:
+                row.append("—")
+        A("| " + " | ".join(row) + " |")
+    lines = out  # noqa
+    A("")
+    A("<sub>Cells count papers by kind; click a cell to jump to its section. "
+      "“—” = gap we haven't mapped yet (PRs very welcome).</sub>\n")
+
+    # ── Details ───────────────────────────────────────────────────────────
+    A("## Papers by stage\n")
+    for s in stages:
+        stage_entries = [p for p in papers if p["stage"] == s["id"]]
+        if not stage_entries:
+            continue
+        A(f"### {s['label']}\n")
+        if s.get("desc"):
+            A(f"_{s['desc']}_\n")
+        for o in objectives:
+            entries = sorted(cell_papers(stage_entries, s["id"], o), key=sort_key)
+            if not entries:
+                continue
+            # NB: heading text must stay in sync with github_slug() call above.
+            A(f"#### {s['label']} · {o}\n")
+            for p in entries:
+                A(render_entry(p, kinds))
+            A("")
+
+    # ── Footer ────────────────────────────────────────────────────────────
+    A("## Stats\n")
+    A(f"- **{total}** papers — 🗡️ {n_attack} attacks, 🛡️ {n_defense} defenses.")
+    pct = round(100 * with_code / total) if total else 0
+    A(f"- **{with_code}/{total}** ({pct}%) ship public **code**.")
+    A("")
+    A("## Contributing\n")
+    A(
+        "Add a paper by editing [`data/papers.yml`](data/papers.yml) and running "
+        "`python3 scripts/generate_readme.py`. See "
+        "[CONTRIBUTING.md](CONTRIBUTING.md). Prioritizing papers whose code is "
+        "public is the whole point — include the `code:` field whenever a repo exists.\n"
+    )
+    A("## License\n")
+    A("[CC0-1.0](LICENSE) — to the extent possible under law, dedicated to the public domain.\n")
+
+    A(f"<sub>Generated by `scripts/generate_readme.py` on {date.today().isoformat()}. Do not edit README.md by hand.</sub>")
+
+    return "\n".join(out) + "\n"
+
+
+def main():
+    tax, papers = load()
+    # basic validation
+    stage_ids = {s["id"] for s in tax["stages"]}
+    valid_obj = set(tax["objectives"])
+    valid_kind = set(tax["kinds"])
+    errors = []
+    for p in papers:
+        if p.get("stage") not in stage_ids:
+            errors.append(f"{p.get('title')!r}: bad stage {p.get('stage')!r}")
+        for o in p.get("objectives", []):
+            if o not in valid_obj:
+                errors.append(f"{p.get('title')!r}: bad objective {o!r}")
+        if p.get("kind") not in valid_kind:
+            errors.append(f"{p.get('title')!r}: bad kind {p.get('kind')!r}")
+    if errors:
+        print("Validation errors:\n  " + "\n  ".join(errors), file=sys.stderr)
+        sys.exit(1)
+    (ROOT / "README.md").write_text(build(tax, papers))
+    print(f"Wrote README.md — {len(papers)} papers, "
+          f"{sum(1 for p in papers if p.get('code'))} with code.")
+
+
+if __name__ == "__main__":
+    main()

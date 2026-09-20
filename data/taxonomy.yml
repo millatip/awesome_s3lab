@@ -1,0 +1,43 @@
+# Axes of the Security-of-Physical-AI matrix.
+# Rows = ML/robotics pipeline stages. Columns = security objectives.
+# Edit labels/descriptions here; the README is regenerated from this file.
+
+stages:
+  - id: data-collection
+    label: Data collection
+    desc: Sensing the physical world — cameras, LiDAR, radar, IMU/GPS, logs.
+  - id: data-processing
+    label: Data processing
+    desc: Cleaning, labeling, curation and the data pipeline.
+  - id: model-construction
+    label: Model construction
+    desc: Architecture, objective/reward design, IP.
+  - id: model-training
+    label: Model training
+    desc: Optimization, (self-)supervision, RL, distributed/federated training.
+  - id: model-deployment
+    label: Model deployment
+    desc: Packaging weights, releasing/serving the model on the robot/vehicle.
+  - id: evaluation
+    label: Evaluation
+    desc: Benchmarks, test sets, simulation, red-teaming, certification.
+  - id: inference
+    label: Inference
+    desc: Runtime perception → planning → action in the physical world.
+  - id: system-architecture
+    label: System architecture
+    desc: Buses, components, APIs, networking across the cyber-physical system.
+
+# Column order matters (renders left→right).
+objectives:
+  - Confidentiality
+  - Integrity
+  - Availability
+  - Safety
+
+# What each paper "does" — drives the count badges in every matrix cell.
+kinds:
+  attack:    { emoji: "🗡️",  label: Attack }
+  defense:   { emoji: "🛡️",  label: Defense }
+  benchmark: { emoji: "📊",  label: Benchmark / dataset / tool }
+  survey:    { emoji: "📚",  label: Survey / SoK }
