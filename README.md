@@ -2,9 +2,11 @@
 
 > A curated, **papers-with-code** map of security & safety research for **Physical AI** — autonomous vehicles, drones, robots, and embodied LLM/VLA agents — organized as a **pipeline stage × security objective** matrix.
 
-![papers](https://img.shields.io/badge/papers-42-blue) ![with code](https://img.shields.io/badge/with%20code-20-brightgreen) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md) [![suggest a paper](https://img.shields.io/badge/suggest-a%20paper-8A2BE2)](../../issues/new?template=suggest-a-paper.yml)
+![papers](https://img.shields.io/badge/papers-48-blue) ![with code](https://img.shields.io/badge/with%20code-24-brightgreen) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md) [![suggest a paper](https://img.shields.io/badge/suggest-a%20paper-8A2BE2)](../../issues/new?template=suggest-a-paper.yml)
 
 **New here?** Read the [contributing guide](CONTRIBUTING.md) or [suggest a paper](../../issues/new?template=suggest-a-paper.yml) — no git required.
+
+**Jump to** — [🗺️ Papers matrix](#the-matrix) · [⭐ Papers with code](#-papers-with-code) · [🧰 Open-source tools](#open-source-tools) · [🙌 Contributing](#contributing)
 
 ## How to read this list
 
@@ -25,11 +27,11 @@ Every paper sits at one **pipeline stage** (row) and targets one or more **secur
 | **Data collection** | — | [🗡️7](#data-collection--integrity) | [🗡️5](#data-collection--availability) | [🗡️8](#data-collection--safety) |
 | **Data processing** | — | — | — | — |
 | **Model construction** | — | — | — | — |
-| **Model training** | [🛡️1](#model-training--confidentiality) | [🗡️5 🛡️1](#model-training--integrity) | [🛡️1](#model-training--availability) | [🗡️5](#model-training--safety) |
+| **Model training** | [🛡️1](#model-training--confidentiality) | [🗡️5 🛡️2](#model-training--integrity) | [🛡️1](#model-training--availability) | [🗡️5 🛡️1](#model-training--safety) |
 | **Model deployment** | [🗡️1](#model-deployment--confidentiality) | — | — | — |
-| **Evaluation** | — | — | — | [📊1](#evaluation--safety) |
-| **Inference** | — | [🗡️17 🛡️3](#inference--integrity) | [🗡️2](#inference--availability) | [🗡️16 🛡️2](#inference--safety) |
-| **System architecture** | — | [🗡️1 🛡️1 📚1](#system-architecture--integrity) | [🛡️1](#system-architecture--availability) | [🗡️1 🛡️1 📚1](#system-architecture--safety) |
+| **Evaluation** | — | [🛡️2](#evaluation--integrity) | — | [🛡️2 📊1](#evaluation--safety) |
+| **Inference** | — | [🗡️18 🛡️4](#inference--integrity) | [🗡️2](#inference--availability) | [🗡️17 🛡️3](#inference--safety) |
+| **System architecture** | — | [🗡️1 🛡️2 📚1](#system-architecture--integrity) | [🛡️1](#system-architecture--availability) | [🗡️1 🛡️2 📚1](#system-architecture--safety) |
 
 <sub>Cells count papers by kind; click a cell to jump to its section. “—” = gap we haven't mapped yet (PRs very welcome).</sub>
 
@@ -48,10 +50,14 @@ The reason this list exists — every row ships a public implementation.
 | 🗡️ [Invisible but Detected: Physical Adversarial Shadow Attack and Defense on LiDAR Object Detection](https://zenodo.org/records/15120571) | 🚗 Autonomous vehicle | Inference | 🧬 🚦 | USENIX Security 2025 | [💻](https://zenodo.org/records/15120571) |
 | 🗡️ [The Ghost Navigator: Revisiting the Hidden Vulnerability of Localization in Autonomous Driving (MSAF)](https://github.com/msafdemo/MSAF) | 🚗 Autonomous vehicle | Inference | 🧬 🚦 | USENIX Security 2025 | [💻](https://github.com/msafdemo/MSAF) |
 | 🗡️ [Exploring the Adversarial Vulnerabilities of Vision-Language-Action Models in Robotics](https://arxiv.org/abs/2411.13587) | 🤖 Embodied LLM / VLA | Inference | 🧬 🚦 | arXiv 2024 | [💻](https://github.com/William-wAng618/roboticAttack) |
+| 🛡️ [PGPatch: Policy-Guided Logic Bug Patching for Robotic Vehicles](https://www.usenix.org/conference/usenixsecurity22/presentation/kim-hyungsub) | 🚁 Drone / UAV | System architecture | 🧬 🚦 | USENIX Security 2022 | [💻](https://github.com/purseclab/PGPatch) |
 | 🗡️ [Shape-Invariant 3D Adversarial Point Clouds (SI-Adv)](https://arxiv.org/abs/2203.04041) | ⚙️ Cross-cutting | Inference | 🧬 | CVPR 2022 | [💻](https://github.com/shikiw/SI-Adv) |
 | 🗡️ [Dirty Road Can Attack: Security of Automated Lane Centering (DRP)](https://www.usenix.org/conference/usenixsecurity21/presentation/sato) | 🚗 Autonomous vehicle | Inference | 🧬 🚦 | USENIX Security 2021 | [💻](https://github.com/ASGuard-UCI/DRP-attack) |
 | 🗡️ [Invisible for both Camera and LiDAR: Security of Multi-Sensor Fusion (MSF-ADV)](https://arxiv.org/abs/2106.09249) | 🚗 Autonomous vehicle | Inference | 🧬 🚦 | IEEE S&P 2021 | [💻](https://github.com/ASGuard-UCI/MSF-ADV) |
+| 🛡️ [PGFuzz: Policy-Guided Fuzzing for Robotic Vehicles](https://www.ndss-symposium.org/ndss-paper/pgfuzz-policy-guided-fuzzing-for-robotic-vehicles/) | 🚁 Drone / UAV | Evaluation | 🧬 🚦 | NDSS 2021 | [💻](https://github.com/purseclab/PGFuzz) |
 | 🗡️ [AdvPC: Transferable Adversarial Perturbations on 3D Point Clouds](https://arxiv.org/abs/1912.00461) | ⚙️ Cross-cutting | Inference | 🧬 | ECCV 2020 | [💻](https://github.com/ajhamdi/AdvPC) |
+| 🗡️ [Adversarial Policies: Attacking Deep Reinforcement Learning](https://arxiv.org/abs/1905.10615) | 🦾 Robot | Inference | 🧬 🚦 | ICLR 2020 | [💻](https://github.com/HumanCompatibleAI/adversarial-policies) |
+| 🛡️ [Robust Deep RL against Adversarial Perturbations on State Observations (SA-RL)](https://arxiv.org/abs/2003.08938) | 🦾 Robot | Model training | 🧬 🚦 | NeurIPS 2020 | [💻](https://github.com/huanzhang12/SA_PPO) |
 | 🗡️ [TrojDRL: Trojan Attacks on Deep Reinforcement Learning Agents](https://arxiv.org/abs/1903.06638) | 🦾 Robot | Model training | 🧬 🚦 | DAC 2020 | [💻](https://github.com/pkiourti/rl_backdoor) |
 | 🛡️ [Certified Adversarial Robustness via Randomized Smoothing](https://arxiv.org/abs/1902.02918) | ⚙️ Cross-cutting | Inference | 🧬 | ICML 2019 | [💻](https://github.com/locuslab/smoothing) |
 | 🗡️ [Generating 3D Adversarial Point Clouds](https://arxiv.org/abs/1809.07016) | ⚙️ Cross-cutting | Inference | 🧬 | CVPR 2019 | [💻](https://github.com/xiangchong1/3d-adv-pc) |
@@ -66,11 +72,12 @@ The reason this list exists — every row ships a public implementation.
 - **`autonomous-driving`** (24) — [Seeing is Deceiving](https://arxiv.org/abs/2509.17253), [Asymmetry Vulnerability and Physical Attacks on Online Map Construction for Autonomous Driving](https://github.com/kyrie-louy/physical-online-map-attack), [ControlLoc](https://dl.acm.org/doi/10.1145/3719027.3744842), [From Threat to Trust](https://zenodo.org/records/16740921), [Investigating Physical Latency Attacks against Camera-based Perception](https://github.com/purseclab/DetStorm), [Invisible but Detected](https://zenodo.org/records/15120571), [On the Realism of LiDAR Spoofing Attacks against AD Vehicle at High Speed and Long Distance](https://www.ndss-symposium.org/ndss-paper/on-the-realism-of-lidar-spoofing-attacks-against-autonomous-driving-vehicle-at-high-speed-and-long-distance/), [PhantomLiDAR](https://arxiv.org/abs/2409.17907), [Revisiting Physical-World Adversarial Attack on Traffic Sign Recognition](https://arxiv.org/abs/2409.09860), [The Ghost Navigator](https://github.com/msafdemo/MSAF), [Towards Real-Time Defense against Object-Based LiDAR Attacks in Autonomous Driving](https://doi.org/10.1145/3719027.3765227), [Jailbreaking LLM-Controlled Robots](https://arxiv.org/abs/2410.13691), [Physical Backdoor Attacks to Lane Detection Systems in Autonomous Driving](https://arxiv.org/abs/2203.00858), [SoK](https://arxiv.org/abs/2203.05314), [Too Afraid to Drive](https://arxiv.org/abs/2201.04610), [Dirty Road Can Attack](https://github.com/ASGuard-UCI/DRP-attack), [Invisible for both Camera and LiDAR](https://github.com/ASGuard-UCI/MSF-ADV), [Poltergeist](https://ieeexplore.ieee.org/document/9519387), [Towards Robust LiDAR-based Perception](https://arxiv.org/abs/2006.16974), [Adversarial Sensor Attack on LiDAR-based Perception in Autonomous Driving](https://arxiv.org/abs/1907.06826), [All Your GPS Are Belong To Us](https://www.usenix.org/conference/usenixsecurity18/presentation/zeng), [Robust Physical-World Attacks on Deep Learning Visual Classification](https://github.com/evtimovi/robust_physical_perturbations), [ShapeShifter](https://github.com/shangtse/robust-physical-attack), [CARLA](https://github.com/carla-simulator/carla)
 - **`backdoor`** (4) — [BadVLA](https://github.com/Zxy-MLlab/BadVLA), [Can We Trust Embodied Agents? Backdoor Attacks against Embodied LLM Decision-Making](https://github.com/ASGuard-UCI/BALD), [TrojanRobot](https://arxiv.org/abs/2411.11683), [Physical Backdoor Attacks to Lane Detection Systems in Autonomous Driving](https://arxiv.org/abs/2203.00858)
 - **`camera`** (3) — [ControlLoc](https://dl.acm.org/doi/10.1145/3719027.3744842), [Investigating Physical Latency Attacks against Camera-based Perception](https://github.com/purseclab/DetStorm), [Poltergeist](https://ieeexplore.ieee.org/document/9519387)
+- **`control`** (4) — [PGPatch](https://github.com/purseclab/PGPatch), [PGFuzz](https://github.com/purseclab/PGFuzz), [SAVIOR](https://www.usenix.org/conference/usenixsecurity20/presentation/quinonez), [RVFuzzer](https://www.usenix.org/conference/usenixsecurity19/presentation/kim)
 - **`control-bus`** (1) — [Sensor Deprivation Attacks for Stealthy UAV Manipulation](https://arxiv.org/abs/2410.11131)
 - **`cooperative-perception`** (1) — [From Threat to Trust](https://zenodo.org/records/16740921)
 - **`decision-making`** (1) — [Can We Trust Embodied Agents? Backdoor Attacks against Embodied LLM Decision-Making](https://github.com/ASGuard-UCI/BALD)
 - **`distributed-training`** (1) — [Machine Learning with Adversaries](https://papers.nips.cc/paper/2017/hash/f4b9ec30ad9f68f89b29639786cb62ef-Abstract.html)
-- **`drone`** (5) — [FlyTrap](https://github.com/ASGuard-UCI/FlyTrap), [ConfuSenSe](https://www.usenix.org/conference/vehiclesec25/presentation/erba), [Sensor Deprivation Attacks for Stealthy UAV Manipulation](https://arxiv.org/abs/2410.11131), [Injected and Delivered](https://www.usenix.org/conference/usenixsecurity18/presentation/tu), [Rocking Drones with Intentional Sound Noise on Gyroscopic Sensors](https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/son)
+- **`drone`** (9) — [FlyTrap](https://github.com/ASGuard-UCI/FlyTrap), [ConfuSenSe](https://www.usenix.org/conference/vehiclesec25/presentation/erba), [Sensor Deprivation Attacks for Stealthy UAV Manipulation](https://arxiv.org/abs/2410.11131), [PGPatch](https://github.com/purseclab/PGPatch), [PGFuzz](https://github.com/purseclab/PGFuzz), [SAVIOR](https://www.usenix.org/conference/usenixsecurity20/presentation/quinonez), [RVFuzzer](https://www.usenix.org/conference/usenixsecurity19/presentation/kim), [Injected and Delivered](https://www.usenix.org/conference/usenixsecurity18/presentation/tu), [Rocking Drones with Intentional Sound Noise on Gyroscopic Sensors](https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/son)
 - **`edge`** (1) — [Neural Network Extraction Through Physical Side Channels](https://www.usenix.org/conference/usenixsecurity24/presentation/horvath)
 - **`embodied-llm`** (4) — [BadRobot](https://arxiv.org/abs/2407.20242), [Can We Trust Embodied Agents? Backdoor Attacks against Embodied LLM Decision-Making](https://github.com/ASGuard-UCI/BALD), [Exploring the Adversarial Vulnerabilities of Vision-Language-Action Models in Robotics](https://github.com/William-wAng618/roboticAttack), [Jailbreaking LLM-Controlled Robots](https://arxiv.org/abs/2410.13691)
 - **`federated`** (1) — [Machine Learning with Adversaries](https://papers.nips.cc/paper/2017/hash/f4b9ec30ad9f68f89b29639786cb62ef-Abstract.html)
@@ -82,9 +89,10 @@ The reason this list exists — every row ships a public implementation.
 - **`latency`** (1) — [Investigating Physical Latency Attacks against Camera-based Perception](https://github.com/purseclab/DetStorm)
 - **`lidar`** (8) — [Seeing is Deceiving](https://arxiv.org/abs/2509.17253), [Invisible but Detected](https://zenodo.org/records/15120571), [On the Realism of LiDAR Spoofing Attacks against AD Vehicle at High Speed and Long Distance](https://www.ndss-symposium.org/ndss-paper/on-the-realism-of-lidar-spoofing-attacks-against-autonomous-driving-vehicle-at-high-speed-and-long-distance/), [PhantomLiDAR](https://arxiv.org/abs/2409.17907), [Towards Real-Time Defense against Object-Based LiDAR Attacks in Autonomous Driving](https://doi.org/10.1145/3719027.3765227), [Invisible for both Camera and LiDAR](https://github.com/ASGuard-UCI/MSF-ADV), [Towards Robust LiDAR-based Perception](https://arxiv.org/abs/2006.16974), [Adversarial Sensor Attack on LiDAR-based Perception in Autonomous Driving](https://arxiv.org/abs/1907.06826)
 - **`localization`** (1) — [The Ghost Navigator](https://github.com/msafdemo/MSAF)
-- **`low-level`** (3) — [ConfuSenSe](https://www.usenix.org/conference/vehiclesec25/presentation/erba), [Sensor Deprivation Attacks for Stealthy UAV Manipulation](https://arxiv.org/abs/2410.11131), [Injected and Delivered](https://www.usenix.org/conference/usenixsecurity18/presentation/tu)
+- **`low-level`** (7) — [ConfuSenSe](https://www.usenix.org/conference/vehiclesec25/presentation/erba), [Sensor Deprivation Attacks for Stealthy UAV Manipulation](https://arxiv.org/abs/2410.11131), [PGPatch](https://github.com/purseclab/PGPatch), [PGFuzz](https://github.com/purseclab/PGFuzz), [SAVIOR](https://www.usenix.org/conference/usenixsecurity20/presentation/quinonez), [RVFuzzer](https://www.usenix.org/conference/usenixsecurity19/presentation/kim), [Injected and Delivered](https://www.usenix.org/conference/usenixsecurity18/presentation/tu)
 - **`mems`** (2) — [Injected and Delivered](https://www.usenix.org/conference/usenixsecurity18/presentation/tu), [Rocking Drones with Intentional Sound Noise on Gyroscopic Sensors](https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/son)
 - **`model-extraction`** (1) — [Neural Network Extraction Through Physical Side Channels](https://www.usenix.org/conference/usenixsecurity24/presentation/horvath)
+- **`multi-agent`** (1) — [Adversarial Policies](https://github.com/HumanCompatibleAI/adversarial-policies)
 - **`navigation`** (1) — [All Your GPS Are Belong To Us](https://www.usenix.org/conference/usenixsecurity18/presentation/zeng)
 - **`object-detection`** (2) — [ControlLoc](https://dl.acm.org/doi/10.1145/3719027.3744842), [ShapeShifter](https://github.com/shangtse/robust-physical-attack)
 - **`perception`** (6) — [Asymmetry Vulnerability and Physical Attacks on Online Map Construction for Autonomous Driving](https://github.com/kyrie-louy/physical-online-map-attack), [Shape-Invariant 3D Adversarial Point Clouds](https://github.com/shikiw/SI-Adv), [AdvPC](https://github.com/ajhamdi/AdvPC), [Certified Adversarial Robustness via Randomized Smoothing](https://github.com/locuslab/smoothing), [Generating 3D Adversarial Point Clouds](https://github.com/xiangchong1/3d-adv-pc), [Robust Physical-World Attacks on Deep Learning Visual Classification](https://github.com/evtimovi/robust_physical_perturbations)
@@ -92,10 +100,11 @@ The reason this list exists — every row ships a public implementation.
 - **`planning`** (1) — [Too Afraid to Drive](https://arxiv.org/abs/2201.04610)
 - **`point-cloud`** (3) — [Shape-Invariant 3D Adversarial Point Clouds](https://github.com/shikiw/SI-Adv), [AdvPC](https://github.com/ajhamdi/AdvPC), [Generating 3D Adversarial Point Clouds](https://github.com/xiangchong1/3d-adv-pc)
 - **`privacy`** (1) — [Deep Learning with Differential Privacy](https://github.com/tensorflow/privacy)
-- **`reinforcement-learning`** (1) — [TrojDRL](https://github.com/pkiourti/rl_backdoor)
-- **`robot`** (1) — [Jailbreaking LLM-Controlled Robots](https://arxiv.org/abs/2410.13691)
-- **`robot-control`** (1) — [TrojDRL](https://github.com/pkiourti/rl_backdoor)
+- **`reinforcement-learning`** (3) — [Adversarial Policies](https://github.com/HumanCompatibleAI/adversarial-policies), [Robust Deep RL against Adversarial Perturbations on State Observations](https://github.com/huanzhang12/SA_PPO), [TrojDRL](https://github.com/pkiourti/rl_backdoor)
+- **`robot`** (2) — [Jailbreaking LLM-Controlled Robots](https://arxiv.org/abs/2410.13691), [Adversarial Policies](https://github.com/HumanCompatibleAI/adversarial-policies)
+- **`robot-control`** (2) — [Robust Deep RL against Adversarial Perturbations on State Observations](https://github.com/huanzhang12/SA_PPO), [TrojDRL](https://github.com/pkiourti/rl_backdoor)
 - **`robot-manipulation`** (4) — [BadRobot](https://arxiv.org/abs/2407.20242), [BadVLA](https://github.com/Zxy-MLlab/BadVLA), [TrojanRobot](https://arxiv.org/abs/2411.11683), [Exploring the Adversarial Vulnerabilities of Vision-Language-Action Models in Robotics](https://github.com/William-wAng618/roboticAttack)
+- **`robotic-vehicle`** (4) — [PGPatch](https://github.com/purseclab/PGPatch), [PGFuzz](https://github.com/purseclab/PGFuzz), [SAVIOR](https://www.usenix.org/conference/usenixsecurity20/presentation/quinonez), [RVFuzzer](https://www.usenix.org/conference/usenixsecurity19/presentation/kim)
 - **`robustness`** (1) — [Certified Adversarial Robustness via Randomized Smoothing](https://github.com/locuslab/smoothing)
 - **`sensor`** (5) — [ConfuSenSe](https://www.usenix.org/conference/vehiclesec25/presentation/erba), [PhantomLiDAR](https://arxiv.org/abs/2409.17907), [Sensor Deprivation Attacks for Stealthy UAV Manipulation](https://arxiv.org/abs/2410.11131), [Poltergeist](https://ieeexplore.ieee.org/document/9519387), [Rocking Drones with Intentional Sound Noise on Gyroscopic Sensors](https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/son)
 - **`sensor-fusion`** (1) — [Invisible for both Camera and LiDAR](https://github.com/ASGuard-UCI/MSF-ADV)
@@ -234,6 +243,10 @@ _Optimization, (self-)supervision, RL, distributed/federated training._
   _Han, Xu, Liu, Zhang, Zhang, Zhang_. ACM MM 2022  
   [📄 paper](https://arxiv.org/abs/2203.00858) · [🌐 project](https://sites.google.com/view/lane-detection-attack/lda)  
   `autonomous-driving` `lane-detection` `backdoor`
+- 🛡️ 🦾 **[Robust Deep RL against Adversarial Perturbations on State Observations (SA-RL)](https://github.com/huanzhang12/SA_PPO)** — A state-adversarial MDP + regularizer that hardens RL control policies against observation attacks.  
+  _Zhang, Chen, Xiao, Li, Boning, Hsieh_. NeurIPS 2020  
+  [📄 paper](https://arxiv.org/abs/2003.08938) · [💻 code](https://github.com/huanzhang12/SA_PPO)  
+  `reinforcement-learning` `robot-control`
 - 🗡️ 🦾 **[TrojDRL: Trojan Attacks on Deep Reinforcement Learning Agents](https://github.com/pkiourti/rl_backdoor)** — Backdoors an RL policy via ~0.025% data + in-band reward poisoning; trigger → attacker action.  
   _Kiourti, Wardega, Jha, Li_. DAC 2020  
   [📄 paper](https://arxiv.org/abs/1903.06638) · [💻 code](https://github.com/pkiourti/rl_backdoor)  
@@ -268,6 +281,10 @@ _Optimization, (self-)supervision, RL, distributed/federated training._
   _Han, Xu, Liu, Zhang, Zhang, Zhang_. ACM MM 2022  
   [📄 paper](https://arxiv.org/abs/2203.00858) · [🌐 project](https://sites.google.com/view/lane-detection-attack/lda)  
   `autonomous-driving` `lane-detection` `backdoor`
+- 🛡️ 🦾 **[Robust Deep RL against Adversarial Perturbations on State Observations (SA-RL)](https://github.com/huanzhang12/SA_PPO)** — A state-adversarial MDP + regularizer that hardens RL control policies against observation attacks.  
+  _Zhang, Chen, Xiao, Li, Boning, Hsieh_. NeurIPS 2020  
+  [📄 paper](https://arxiv.org/abs/2003.08938) · [💻 code](https://github.com/huanzhang12/SA_PPO)  
+  `reinforcement-learning` `robot-control`
 - 🗡️ 🦾 **[TrojDRL: Trojan Attacks on Deep Reinforcement Learning Agents](https://github.com/pkiourti/rl_backdoor)** — Backdoors an RL policy via ~0.025% data + in-band reward poisoning; trigger → attacker action.  
   _Kiourti, Wardega, Jha, Li_. DAC 2020  
   [📄 paper](https://arxiv.org/abs/1903.06638) · [💻 code](https://github.com/pkiourti/rl_backdoor)  
@@ -288,8 +305,27 @@ _Packaging weights, releasing/serving the model on the robot/vehicle._
 
 _Benchmarks, test sets, simulation, red-teaming, certification._
 
+#### Evaluation · Integrity
+
+- 🛡️ 🚁 **[PGFuzz: Policy-Guided Fuzzing for Robotic Vehicles](https://github.com/purseclab/PGFuzz)** — Fuzzes RV control programs against temporal-logic safety policies; finds physical-state bugs.  
+  _Kim, Ozmen, Bianchi, Celik, Xu_. NDSS 2021  
+  [📄 paper](https://www.ndss-symposium.org/ndss-paper/pgfuzz-policy-guided-fuzzing-for-robotic-vehicles/) · [💻 code](https://github.com/purseclab/PGFuzz)  
+  `drone` `robotic-vehicle` `low-level` `control`
+- 🛡️ 🚁 **[RVFuzzer: Finding Input Validation Bugs in Robotic Vehicles through Control-Guided Testing](https://www.usenix.org/conference/usenixsecurity19/presentation/kim)** — Control-guided input mutation finds input-validation bugs in RV firmware (87 zero-days).  
+  _Kim, Kim, Ozmen, Bianchi, Celik, Xu_. USENIX Security 2019  
+  [📄 paper](https://www.usenix.org/conference/usenixsecurity19/presentation/kim)  
+  `drone` `robotic-vehicle` `low-level` `control`
+
 #### Evaluation · Safety
 
+- 🛡️ 🚁 **[PGFuzz: Policy-Guided Fuzzing for Robotic Vehicles](https://github.com/purseclab/PGFuzz)** — Fuzzes RV control programs against temporal-logic safety policies; finds physical-state bugs.  
+  _Kim, Ozmen, Bianchi, Celik, Xu_. NDSS 2021  
+  [📄 paper](https://www.ndss-symposium.org/ndss-paper/pgfuzz-policy-guided-fuzzing-for-robotic-vehicles/) · [💻 code](https://github.com/purseclab/PGFuzz)  
+  `drone` `robotic-vehicle` `low-level` `control`
+- 🛡️ 🚁 **[RVFuzzer: Finding Input Validation Bugs in Robotic Vehicles through Control-Guided Testing](https://www.usenix.org/conference/usenixsecurity19/presentation/kim)** — Control-guided input mutation finds input-validation bugs in RV firmware (87 zero-days).  
+  _Kim, Kim, Ozmen, Bianchi, Celik, Xu_. USENIX Security 2019  
+  [📄 paper](https://www.usenix.org/conference/usenixsecurity19/presentation/kim)  
+  `drone` `robotic-vehicle` `low-level` `control`
 - 📊 🚗 **[CARLA: An Open Urban Driving Simulator](https://github.com/carla-simulator/carla)** — Open simulator widely used to red-team and safety-test AV stacks under rare/adversarial scenarios.  
   _Dosovitskiy, Ros, Codevilla, Lopez, Koltun_. CoRL 2017  
   [📄 paper](https://arxiv.org/abs/1711.03938) · [💻 code](https://github.com/carla-simulator/carla)  
@@ -357,6 +393,14 @@ _Runtime perception → planning → action in the physical world._
   _Hamdi, Rojas, Thabet, Ghanem_. ECCV 2020  
   [📄 paper](https://arxiv.org/abs/1912.00461) · [💻 code](https://github.com/ajhamdi/AdvPC)  
   `point-cloud` `perception`
+- 🗡️ 🦾 **[Adversarial Policies: Attacking Deep Reinforcement Learning](https://github.com/HumanCompatibleAI/adversarial-policies)** — A victim RL agent is beaten by an adversary that just moves oddly — no direct control needed.  
+  _Gleave, Dennis, Wild, Kant, Levine, Russell_. ICLR 2020  
+  [📄 paper](https://arxiv.org/abs/1905.10615) · [💻 code](https://github.com/HumanCompatibleAI/adversarial-policies)  
+  `reinforcement-learning` `robot` `multi-agent`
+- 🛡️ 🚁 **[SAVIOR: Securing Autonomous Vehicles with Robust Physical Invariants](https://www.usenix.org/conference/usenixsecurity20/presentation/quinonez)** — Runtime physical invariants (sensor/actuator correlations) detect spoofing on aerial & ground vehicles.  
+  _Quinonez, Giraldo, Salazar, Bauman, Cardenas, Lin_. USENIX Security 2020  
+  [📄 paper](https://www.usenix.org/conference/usenixsecurity20/presentation/quinonez)  
+  `drone` `robotic-vehicle` `low-level` `control`
 - 🛡️ 🚗 **[Towards Robust LiDAR-based Perception: Black-box Sensor Attack and Countermeasures (CARLO)](https://arxiv.org/abs/2006.16974)** — Occlusion/physics-based reasoning (CARLO) detects and rejects spoofed LiDAR obstacles.  
   _Sun, Cao, Chen, Mao_. USENIX Security 2020  
   [📄 paper](https://arxiv.org/abs/2006.16974)  
@@ -451,6 +495,14 @@ _Runtime perception → planning → action in the physical world._
   _Cao, Wang, Xiao, Yang, Fang, Yang, Chen, Liu, Li_. IEEE S&P 2021  
   [📄 paper](https://arxiv.org/abs/2106.09249) · [💻 code](https://github.com/ASGuard-UCI/MSF-ADV)  
   `autonomous-driving` `sensor-fusion` `lidar`
+- 🗡️ 🦾 **[Adversarial Policies: Attacking Deep Reinforcement Learning](https://github.com/HumanCompatibleAI/adversarial-policies)** — A victim RL agent is beaten by an adversary that just moves oddly — no direct control needed.  
+  _Gleave, Dennis, Wild, Kant, Levine, Russell_. ICLR 2020  
+  [📄 paper](https://arxiv.org/abs/1905.10615) · [💻 code](https://github.com/HumanCompatibleAI/adversarial-policies)  
+  `reinforcement-learning` `robot` `multi-agent`
+- 🛡️ 🚁 **[SAVIOR: Securing Autonomous Vehicles with Robust Physical Invariants](https://www.usenix.org/conference/usenixsecurity20/presentation/quinonez)** — Runtime physical invariants (sensor/actuator correlations) detect spoofing on aerial & ground vehicles.  
+  _Quinonez, Giraldo, Salazar, Bauman, Cardenas, Lin_. USENIX Security 2020  
+  [📄 paper](https://www.usenix.org/conference/usenixsecurity20/presentation/quinonez)  
+  `drone` `robotic-vehicle` `low-level` `control`
 - 🛡️ 🚗 **[Towards Robust LiDAR-based Perception: Black-box Sensor Attack and Countermeasures (CARLO)](https://arxiv.org/abs/2006.16974)** — Occlusion/physics-based reasoning (CARLO) detects and rejects spoofed LiDAR obstacles.  
   _Sun, Cao, Chen, Mao_. USENIX Security 2020  
   [📄 paper](https://arxiv.org/abs/2006.16974)  
@@ -478,6 +530,10 @@ _Buses, components, APIs, networking across the cyber-physical system._
   _Wang, et al._. USENIX Security 2025  
   [📄 paper](https://www.usenix.org/conference/usenixsecurity25/presentation/wang-chenyi) · [💻 code](https://zenodo.org/records/16740921)  
   `cooperative-perception` `v2x` `autonomous-driving`
+- 🛡️ 🚁 **[PGPatch: Policy-Guided Logic Bug Patching for Robotic Vehicles](https://github.com/purseclab/PGPatch)** — Automatically generates source-code patches for logic bugs in RV control programs.  
+  _Kim, Ozmen, Jing, Bianchi, Celik, Xu_. USENIX Security 2022  
+  [📄 paper](https://www.usenix.org/conference/usenixsecurity22/presentation/kim-hyungsub) · [💻 code](https://github.com/purseclab/PGPatch)  
+  `drone` `robotic-vehicle` `low-level` `control`
 - 📚 🚗 **[SoK: On the Semantic AI Security in Autonomous Driving](https://arxiv.org/abs/2203.05314)** — Systematizes semantic AD-AI attacks/defenses and ships PASS, an open evaluation platform.  
   _Shen, Wang, Wan, Luo, Sato, Hu, ... Qiao, Chen_. arXiv 2022  
   [📄 paper](https://arxiv.org/abs/2203.05314)  
@@ -500,6 +556,10 @@ _Buses, components, APIs, networking across the cyber-physical system._
   _Wang, et al._. USENIX Security 2025  
   [📄 paper](https://www.usenix.org/conference/usenixsecurity25/presentation/wang-chenyi) · [💻 code](https://zenodo.org/records/16740921)  
   `cooperative-perception` `v2x` `autonomous-driving`
+- 🛡️ 🚁 **[PGPatch: Policy-Guided Logic Bug Patching for Robotic Vehicles](https://github.com/purseclab/PGPatch)** — Automatically generates source-code patches for logic bugs in RV control programs.  
+  _Kim, Ozmen, Jing, Bianchi, Celik, Xu_. USENIX Security 2022  
+  [📄 paper](https://www.usenix.org/conference/usenixsecurity22/presentation/kim-hyungsub) · [💻 code](https://github.com/purseclab/PGPatch)  
+  `drone` `robotic-vehicle` `low-level` `control`
 - 📚 🚗 **[SoK: On the Semantic AI Security in Autonomous Driving](https://arxiv.org/abs/2203.05314)** — Systematizes semantic AD-AI attacks/defenses and ships PASS, an open evaluation platform.  
   _Shen, Wang, Wan, Luo, Sato, Hu, ... Qiao, Chen_. arXiv 2022  
   [📄 paper](https://arxiv.org/abs/2203.05314)  
@@ -517,14 +577,24 @@ Reusable tooling on the **same axes** — to build, attack, defend, simulate and
 
 | Stage \ Objective | 🔒 Confidentiality | 🧬 Integrity | ⚡ Availability | 🚦 Safety |
 | --- | --- | --- | --- | --- |
-| **Data collection** | — | — | — | — |
+| **Data collection** | — | [🧰1](#tools-data-collection--integrity) | — | [🧰1](#tools-data-collection--safety) |
 | **Data processing** | — | — | — | — |
 | **Model construction** | — | — | — | — |
 | **Model training** | [🧰2](#tools-model-training--confidentiality) | [🧰1](#tools-model-training--integrity) | — | — |
 | **Model deployment** | — | — | — | — |
-| **Evaluation** | — | [🧰5 🎮1 📊2](#tools-evaluation--integrity) | — | [🎮4 📊1](#tools-evaluation--safety) |
+| **Evaluation** | — | [🧰5 🎮1 📊3](#tools-evaluation--integrity) | — | [🎮4 📊1](#tools-evaluation--safety) |
 | **Inference** | — | — | — | [🏗️1](#tools-inference--safety) |
-| **System architecture** | [🧰1](#tools-system-architecture--confidentiality) | [🧰1](#tools-system-architecture--integrity) | — | [🏗️2](#tools-system-architecture--safety) |
+| **System architecture** | [🧰2](#tools-system-architecture--confidentiality) | [🧰2](#tools-system-architecture--integrity) | — | [🏗️4](#tools-system-architecture--safety) |
+
+### Tools: Data collection · Integrity
+
+- 🧰 🚁 **[gps-sdr-sim](https://github.com/osqzss/gps-sdr-sim)** — Generates GPS L1 C/A baseband for SDRs — the go-to for reproducible GPS-spoofing experiments.  
+  Library / framework · `gps` `spoofing` `low-level` `drone`
+
+### Tools: Data collection · Safety
+
+- 🧰 🚁 **[gps-sdr-sim](https://github.com/osqzss/gps-sdr-sim)** — Generates GPS L1 C/A baseband for SDRs — the go-to for reproducible GPS-spoofing experiments.  
+  Library / framework · `gps` `spoofing` `low-level` `drone`
 
 ### Tools: Model training · Confidentiality
 
@@ -554,6 +624,8 @@ Reusable tooling on the **same axes** — to build, attack, defend, simulate and
   Library / framework · `robustness` `evaluation`
 - 📊 🤖 **[LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO)** — Manipulation benchmark widely used to evaluate (and attack) VLA policies.  
   Benchmark / leaderboard · `vla` `robot-manipulation` `benchmark`
+- 📊 🦾 **[Robot Vulnerability Database (RVD)](https://github.com/aliasrobotics/RVD)** — Community database of robot vulnerabilities, weaknesses and exploits for triage and testing.  
+  Benchmark / leaderboard · `robot` `ros` `vulnerability`
 - 📊 ⚙️ **[RobustBench](https://github.com/RobustBench/robustbench)** — Standardized adversarial-robustness leaderboard and Model Zoo.  
   Benchmark / leaderboard · `robustness` `benchmark`
 
@@ -577,27 +649,35 @@ Reusable tooling on the **same axes** — to build, attack, defend, simulate and
 
 ### Tools: System architecture · Confidentiality
 
+- 🧰 🦾 **[aztarna](https://github.com/aliasrobotics/aztarna)** — Footprinting/recon tool that finds exposed ROS/industrial robots and their weaknesses.  
+  Library / framework · `robot` `ros` `low-level` `reconnaissance`
 - 🧰 🦾 **[SROS2 (Secure ROS 2)](https://github.com/ros2/sros2)** — Tools to add authentication, encryption and access control to ROS 2 graphs.  
   Library / framework · `robot` `ros` `security`
 
 ### Tools: System architecture · Integrity
 
+- 🧰 🦾 **[aztarna](https://github.com/aliasrobotics/aztarna)** — Footprinting/recon tool that finds exposed ROS/industrial robots and their weaknesses.  
+  Library / framework · `robot` `ros` `low-level` `reconnaissance`
 - 🧰 🦾 **[SROS2 (Secure ROS 2)](https://github.com/ros2/sros2)** — Tools to add authentication, encryption and access control to ROS 2 graphs.  
   Library / framework · `robot` `ros` `security`
 
 ### Tools: System architecture · Safety
 
+- 🏗️ 🚁 **[ArduPilot](https://github.com/ArduPilot/ardupilot)** — Open autopilot for planes/copters/rovers with SITL; common target for sensor/GPS attack studies.  
+  AV / robot stack · `drone` `uav` `rover` `low-level`
 - 🏗️ 🚗 **[Autoware](https://github.com/autowarefoundation/autoware)** — ROS 2-based open AV stack used as a realistic evaluation platform.  
   AV / robot stack · `autonomous-driving` `stack`
 - 🏗️ 🚗 **[Baidu Apollo](https://github.com/ApolloAuto/apollo)** — Full open AV stack — a common target/testbed for AD security research.  
   AV / robot stack · `autonomous-driving` `stack`
+- 🏗️ 🚁 **[PX4 Autopilot](https://github.com/PX4/PX4-Autopilot)** — Open flight-control stack with SITL — the standard testbed for UAV control-security research.  
+  AV / robot stack · `drone` `uav` `flight-controller` `low-level`
 
 ## Stats
 
-- **42** papers — 🗡️ 34 attacks, 🛡️ 6 defenses.
-- **20/42** (48%) ship public **code**.
-- By platform — 🚗 Autonomous vehicle 23 · 🚁 Drone / UAV 5 · 🦾 Robot 1 · 🤖 Embodied LLM / VLA 6 · ⚙️ Cross-cutting 7.
-- Plus **18** open-source tools.
+- **48** papers — 🗡️ 35 attacks, 🛡️ 11 defenses.
+- **24/48** (50%) ship public **code**.
+- By platform — 🚗 Autonomous vehicle 23 · 🚁 Drone / UAV 9 · 🦾 Robot 3 · 🤖 Embodied LLM / VLA 6 · ⚙️ Cross-cutting 7.
+- Plus **23** open-source tools.
 
 ## Contributing
 

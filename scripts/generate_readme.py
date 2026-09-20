@@ -163,6 +163,10 @@ def build(tax, papers, tools):
     )
     A("**New here?** Read the [contributing guide](CONTRIBUTING.md) or "
       "[suggest a paper](../../issues/new?template=suggest-a-paper.yml) — no git required.\n")
+    A("**Jump to** — [🗺️ Papers matrix](#the-matrix) · "
+      "[⭐ Papers with code](#-papers-with-code) · "
+      "[🧰 Open-source tools](#open-source-tools) · "
+      "[🙌 Contributing](#contributing)\n")
 
     # ── Legend ────────────────────────────────────────────────────────────
     A("## How to read this list\n")

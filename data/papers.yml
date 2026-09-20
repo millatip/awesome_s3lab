@@ -528,3 +528,75 @@ papers:
     domains: [low-level, drone, uav, sensor]
     tldr: "Reconfigures COTS flight-controller sensors so the controller acts on stale/attacker-shaped readings."
     paper: "https://www.usenix.org/conference/vehiclesec25/presentation/erba"
+
+  # ── Robotic-vehicle (drone/rover) control-program security ─────────────────
+  - title: "PGFuzz: Policy-Guided Fuzzing for Robotic Vehicles"
+    authors: "Kim, Ozmen, Bianchi, Celik, Xu"
+    venue: "NDSS"
+    year: 2021
+    stage: evaluation
+    objectives: [Integrity, Safety]
+    kind: defense
+    domains: [drone, robotic-vehicle, low-level, control]
+    tldr: "Fuzzes RV control programs against temporal-logic safety policies; finds physical-state bugs."
+    paper: "https://www.ndss-symposium.org/ndss-paper/pgfuzz-policy-guided-fuzzing-for-robotic-vehicles/"
+    code: "https://github.com/purseclab/PGFuzz"
+
+  - title: "RVFuzzer: Finding Input Validation Bugs in Robotic Vehicles through Control-Guided Testing"
+    authors: "Kim, Kim, Ozmen, Bianchi, Celik, Xu"
+    venue: "USENIX Security"
+    year: 2019
+    stage: evaluation
+    objectives: [Integrity, Safety]
+    kind: defense
+    domains: [drone, robotic-vehicle, low-level, control]
+    tldr: "Control-guided input mutation finds input-validation bugs in RV firmware (87 zero-days)."
+    paper: "https://www.usenix.org/conference/usenixsecurity19/presentation/kim"
+
+  - title: "PGPatch: Policy-Guided Logic Bug Patching for Robotic Vehicles"
+    authors: "Kim, Ozmen, Jing, Bianchi, Celik, Xu"
+    venue: "USENIX Security"
+    year: 2022
+    stage: system-architecture
+    objectives: [Integrity, Safety]
+    kind: defense
+    domains: [drone, robotic-vehicle, low-level, control]
+    tldr: "Automatically generates source-code patches for logic bugs in RV control programs."
+    paper: "https://www.usenix.org/conference/usenixsecurity22/presentation/kim-hyungsub"
+    code: "https://github.com/purseclab/PGPatch"
+
+  - title: "SAVIOR: Securing Autonomous Vehicles with Robust Physical Invariants"
+    authors: "Quinonez, Giraldo, Salazar, Bauman, Cardenas, Lin"
+    venue: "USENIX Security"
+    year: 2020
+    stage: inference
+    objectives: [Integrity, Safety]
+    kind: defense
+    domains: [drone, robotic-vehicle, low-level, control]
+    tldr: "Runtime physical invariants (sensor/actuator correlations) detect spoofing on aerial & ground vehicles."
+    paper: "https://www.usenix.org/conference/usenixsecurity20/presentation/quinonez"
+
+  # ── Robot / RL policy security ─────────────────────────────────────────────
+  - title: "Adversarial Policies: Attacking Deep Reinforcement Learning"
+    authors: "Gleave, Dennis, Wild, Kant, Levine, Russell"
+    venue: "ICLR"
+    year: 2020
+    stage: inference
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [reinforcement-learning, robot, multi-agent]
+    tldr: "A victim RL agent is beaten by an adversary that just moves oddly — no direct control needed."
+    paper: "https://arxiv.org/abs/1905.10615"
+    code: "https://github.com/HumanCompatibleAI/adversarial-policies"
+
+  - title: "Robust Deep RL against Adversarial Perturbations on State Observations (SA-RL)"
+    authors: "Zhang, Chen, Xiao, Li, Boning, Hsieh"
+    venue: "NeurIPS"
+    year: 2020
+    stage: model-training
+    objectives: [Integrity, Safety]
+    kind: defense
+    domains: [reinforcement-learning, robot-control]
+    tldr: "A state-adversarial MDP + regularizer that hardens RL control policies against observation attacks."
+    paper: "https://arxiv.org/abs/2003.08938"
+    code: "https://github.com/huanzhang12/SA_PPO"

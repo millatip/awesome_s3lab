@@ -158,3 +158,44 @@ tools:
     type: stack
     domains: [autonomous-driving, adas, stack]
     tldr: "Production-grade open ADAS — real-world target for lane-keeping / perception attacks."
+
+  # ── Low-level: drone/robot flight stacks, RF, and robot security ───────────
+  - name: "PX4 Autopilot"
+    url: "https://github.com/PX4/PX4-Autopilot"
+    stage: system-architecture
+    objectives: [Safety]
+    type: stack
+    domains: [drone, uav, flight-controller, low-level]
+    tldr: "Open flight-control stack with SITL — the standard testbed for UAV control-security research."
+
+  - name: "ArduPilot"
+    url: "https://github.com/ArduPilot/ardupilot"
+    stage: system-architecture
+    objectives: [Safety]
+    type: stack
+    domains: [drone, uav, rover, low-level]
+    tldr: "Open autopilot for planes/copters/rovers with SITL; common target for sensor/GPS attack studies."
+
+  - name: "aztarna"
+    url: "https://github.com/aliasrobotics/aztarna"
+    stage: system-architecture
+    objectives: [Confidentiality, Integrity]
+    type: library
+    domains: [robot, ros, low-level, reconnaissance]
+    tldr: "Footprinting/recon tool that finds exposed ROS/industrial robots and their weaknesses."
+
+  - name: "Robot Vulnerability Database (RVD)"
+    url: "https://github.com/aliasrobotics/RVD"
+    stage: evaluation
+    objectives: [Integrity]
+    type: benchmark
+    domains: [robot, ros, vulnerability]
+    tldr: "Community database of robot vulnerabilities, weaknesses and exploits for triage and testing."
+
+  - name: "gps-sdr-sim"
+    url: "https://github.com/osqzss/gps-sdr-sim"
+    stage: data-collection
+    objectives: [Integrity, Safety]
+    type: library
+    domains: [gps, spoofing, low-level, drone]
+    tldr: "Generates GPS L1 C/A baseband for SDRs — the go-to for reproducible GPS-spoofing experiments."
