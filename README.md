@@ -2,7 +2,9 @@
 
 > A curated, **papers-with-code** map of security & safety research for **Physical AI** — autonomous vehicles, drones, robots, and embodied LLM/VLA agents — organized as a **pipeline stage × security objective** matrix.
 
-![papers](https://img.shields.io/badge/papers-42-blue) ![with code](https://img.shields.io/badge/with%20code-20-brightgreen) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
+![papers](https://img.shields.io/badge/papers-42-blue) ![with code](https://img.shields.io/badge/with%20code-20-brightgreen) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md) [![suggest a paper](https://img.shields.io/badge/suggest-a%20paper-8A2BE2)](../../issues/new?template=suggest-a-paper.yml)
+
+**New here?** Read the [contributing guide](CONTRIBUTING.md) or [suggest a paper](../../issues/new?template=suggest-a-paper.yml) — no git required.
 
 ## How to read this list
 

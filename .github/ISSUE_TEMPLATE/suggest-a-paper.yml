@@ -1,0 +1,104 @@
+name: 📄 Suggest a paper
+description: Propose a paper for the list (no git required — a maintainer will add it)
+title: "[Paper]: "
+labels: ["paper-suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a paper! Fill in what you know — a maintainer will
+        turn this into a `data/papers.yml` entry. Prefer papers whose **code is public**.
+  - type: input
+    id: title
+    attributes:
+      label: Paper title
+      placeholder: "e.g. FlyTrap: Physical Distance-Pulling Attack Toward Camera-based Autonomous Target Tracking"
+    validations:
+      required: true
+  - type: input
+    id: venue
+    attributes:
+      label: Venue & year
+      placeholder: "e.g. NDSS 2026 / USENIX Security 2025 / arXiv 2025"
+    validations:
+      required: true
+  - type: input
+    id: paper
+    attributes:
+      label: Paper link (arXiv abstract, DOI, or the USENIX/IEEE/NDSS page)
+      placeholder: "https://arxiv.org/abs/...."
+    validations:
+      required: true
+  - type: input
+    id: code
+    attributes:
+      label: Code link (leave blank if there is no public repo)
+      placeholder: "https://github.com/...."
+  - type: input
+    id: project
+    attributes:
+      label: Project / website (optional)
+      placeholder: "https://...."
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Pipeline stage (the one the work is really about)
+      options:
+        - Data collection
+        - Data processing
+        - Model construction
+        - Model training
+        - Model deployment
+        - Evaluation
+        - Inference
+        - System architecture
+        - Not sure
+    validations:
+      required: true
+  - type: checkboxes
+    id: objectives
+    attributes:
+      label: Security objective(s)
+      options:
+        - label: "🔒 Confidentiality"
+        - label: "🧬 Integrity"
+        - label: "⚡ Availability"
+        - label: "🚦 Safety"
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - "🗡️ Attack"
+        - "🛡️ Defense"
+        - "📊 Benchmark / dataset / tool"
+        - "📚 Survey / SoK"
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - "🚗 Autonomous vehicle"
+        - "🚁 Drone / UAV"
+        - "🦾 Robot"
+        - "🤖 Embodied LLM / VLA"
+        - "⚙️ Cross-cutting"
+        - "Not sure"
+    validations:
+      required: true
+  - type: textarea
+    id: tldr
+    attributes:
+      label: One-sentence TL;DR
+      placeholder: "What the attack/defense does, concretely."
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This is about security / privacy / safety of **physical or embodied AI** (AV, drone/UAV, robot, embodied LLM/VLA, or the CPS hardware layer).
+          required: true
+        - label: I checked it isn't already in the list.
+          required: true

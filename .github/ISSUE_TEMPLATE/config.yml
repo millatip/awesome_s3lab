@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📖 Contributing guide (add it yourself via PR)
+    url: https://github.com/millatip/awesome_s3lab/blob/main/CONTRIBUTING.md
+    about: Prefer to open a pull request? The full workflow is here.

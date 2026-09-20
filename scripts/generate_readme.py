@@ -138,8 +138,12 @@ def build(tax, papers):
     A(
         f"![papers](https://img.shields.io/badge/papers-{total}-blue) "
         f"![with code](https://img.shields.io/badge/with%20code-{with_code}-brightgreen) "
-        "![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)\n"
+        "[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md) "
+        "[![suggest a paper](https://img.shields.io/badge/suggest-a%20paper-8A2BE2)]"
+        "(../../issues/new?template=suggest-a-paper.yml)\n"
     )
+    A("**New here?** Read the [contributing guide](CONTRIBUTING.md) or "
+      "[suggest a paper](../../issues/new?template=suggest-a-paper.yml) — no git required.\n")
 
     # ── Legend ────────────────────────────────────────────────────────────
     A("## How to read this list\n")
