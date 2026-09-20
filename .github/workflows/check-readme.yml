@@ -1,0 +1,27 @@
+name: Check README is generated
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install deps
+        run: pip install pyyaml
+      - name: Regenerate README
+        run: python3 scripts/generate_readme.py
+      - name: Fail if README is stale
+        run: |
+          if ! git diff --quiet -- README.md; then
+            echo "::error::README.md is out of date. Run 'python3 scripts/generate_readme.py' and commit the result."
+            git diff -- README.md
+            exit 1
+          fi
+          echo "README.md is up to date."

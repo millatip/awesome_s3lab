@@ -2,7 +2,7 @@
 
 > A curated, **papers-with-code** map of security & safety research for **Physical AI** — autonomous vehicles, drones, robots, and embodied LLM/VLA agents — organized as a **pipeline stage × security objective** matrix.
 
-![papers](https://img.shields.io/badge/papers-36-blue) ![with code](https://img.shields.io/badge/with%20code-18-brightgreen) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
+![papers](https://img.shields.io/badge/papers-42-blue) ![with code](https://img.shields.io/badge/with%20code-20-brightgreen) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
 
 ## How to read this list
 
@@ -18,10 +18,10 @@ Every paper sits at one **pipeline stage** (row) and targets one or more **secur
 
 | Stage \ Objective | 🔒 Confidentiality | 🧬 Integrity | ⚡ Availability | 🚦 Safety |
 | --- | --- | --- | --- | --- |
-| **Data collection** | — | [🗡️4](#data-collection--integrity) | [🗡️2](#data-collection--availability) | [🗡️5](#data-collection--safety) |
+| **Data collection** | — | [🗡️7](#data-collection--integrity) | [🗡️5](#data-collection--availability) | [🗡️8](#data-collection--safety) |
 | **Data processing** | — | — | — | — |
 | **Model construction** | — | — | — | — |
-| **Model training** | [🛡️1](#model-training--confidentiality) | [🗡️2 🛡️1](#model-training--integrity) | [🛡️1](#model-training--availability) | [🗡️2](#model-training--safety) |
+| **Model training** | [🛡️1](#model-training--confidentiality) | [🗡️5 🛡️1](#model-training--integrity) | [🛡️1](#model-training--availability) | [🗡️5](#model-training--safety) |
 | **Model deployment** | [🗡️1](#model-deployment--confidentiality) | — | — | — |
 | **Evaluation** | — | — | — | [📊1](#evaluation--safety) |
 | **Inference** | — | [🗡️17 🛡️3](#inference--integrity) | [🗡️2](#inference--availability) | [🗡️16 🛡️2](#inference--safety) |
@@ -37,6 +37,8 @@ The reason this list exists — every row ships a public implementation.
 | --- | --- | --- | --- | --- |
 | 🗡️ [FlyTrap: Physical Distance-Pulling Attack Toward Camera-based Autonomous Target Tracking](https://github.com/ASGuard-UCI/FlyTrap) | Inference | 🧬 🚦 | NDSS 2026 | [💻](https://github.com/ASGuard-UCI/FlyTrap) |
 | 🗡️ [Asymmetry Vulnerability and Physical Attacks on Online Map Construction for Autonomous Driving](https://dl.acm.org/doi/10.1145/3719027.3765092) | Inference | 🧬 🚦 | ACM CCS 2025 | [💻](https://github.com/kyrie-louy/physical-online-map-attack) |
+| 🗡️ [BadVLA: Backdoor Attacks on Vision-Language-Action Models via Objective-Decoupled Optimization](https://arxiv.org/abs/2505.16640) | Model training | 🧬 🚦 | NeurIPS 2025 | [💻](https://github.com/Zxy-MLlab/BadVLA) |
+| 🗡️ [Can We Trust Embodied Agents? Backdoor Attacks against Embodied LLM Decision-Making (BALD)](https://arxiv.org/abs/2405.20774) | Model training | 🧬 🚦 | ICLR 2025 | [💻](https://github.com/ASGuard-UCI/BALD) |
 | 🛡️ [From Threat to Trust: Attention Mechanisms for Attacks & Defenses in Cooperative Perception (SOMBRA / LUCIA)](https://www.usenix.org/conference/usenixsecurity25/presentation/wang-chenyi) | System architecture | 🧬 ⚡ 🚦 | USENIX Security 2025 | [💻](https://zenodo.org/records/16740921) |
 | 🗡️ [Investigating Physical Latency Attacks against Camera-based Perception (DetStorm)](https://github.com/purseclab/DetStorm) | Inference | ⚡ 🚦 | IEEE S&P 2025 | [💻](https://github.com/purseclab/DetStorm) |
 | 🗡️ [Invisible but Detected: Physical Adversarial Shadow Attack and Defense on LiDAR Object Detection](https://zenodo.org/records/15120571) | Inference | 🧬 🚦 | USENIX Security 2025 | [💻](https://zenodo.org/records/15120571) |
@@ -56,46 +58,53 @@ The reason this list exists — every row ships a public implementation.
 
 ## Browse by domain
 
+- **`actuator`** (1) — [Injected and Delivered](https://www.usenix.org/conference/usenixsecurity18/presentation/tu)
 - **`autonomous-driving`** (24) — [Seeing is Deceiving](https://arxiv.org/abs/2509.17253), [Asymmetry Vulnerability and Physical Attacks on Online Map Construction for Autonomous Driving](https://github.com/kyrie-louy/physical-online-map-attack), [ControlLoc](https://dl.acm.org/doi/10.1145/3719027.3744842), [From Threat to Trust](https://zenodo.org/records/16740921), [Investigating Physical Latency Attacks against Camera-based Perception](https://github.com/purseclab/DetStorm), [Invisible but Detected](https://zenodo.org/records/15120571), [On the Realism of LiDAR Spoofing Attacks against AD Vehicle at High Speed and Long Distance](https://www.ndss-symposium.org/ndss-paper/on-the-realism-of-lidar-spoofing-attacks-against-autonomous-driving-vehicle-at-high-speed-and-long-distance/), [PhantomLiDAR](https://arxiv.org/abs/2409.17907), [Revisiting Physical-World Adversarial Attack on Traffic Sign Recognition](https://arxiv.org/abs/2409.09860), [The Ghost Navigator](https://github.com/msafdemo/MSAF), [Towards Real-Time Defense against Object-Based LiDAR Attacks in Autonomous Driving](https://doi.org/10.1145/3719027.3765227), [Jailbreaking LLM-Controlled Robots](https://arxiv.org/abs/2410.13691), [Physical Backdoor Attacks to Lane Detection Systems in Autonomous Driving](https://arxiv.org/abs/2203.00858), [SoK](https://arxiv.org/abs/2203.05314), [Too Afraid to Drive](https://arxiv.org/abs/2201.04610), [Dirty Road Can Attack](https://github.com/ASGuard-UCI/DRP-attack), [Invisible for both Camera and LiDAR](https://github.com/ASGuard-UCI/MSF-ADV), [Poltergeist](https://ieeexplore.ieee.org/document/9519387), [Towards Robust LiDAR-based Perception](https://arxiv.org/abs/2006.16974), [Adversarial Sensor Attack on LiDAR-based Perception in Autonomous Driving](https://arxiv.org/abs/1907.06826), [All Your GPS Are Belong To Us](https://www.usenix.org/conference/usenixsecurity18/presentation/zeng), [Robust Physical-World Attacks on Deep Learning Visual Classification](https://github.com/evtimovi/robust_physical_perturbations), [ShapeShifter](https://github.com/shangtse/robust-physical-attack), [CARLA](https://github.com/carla-simulator/carla)
-- **`backdoor`** (1) — [Physical Backdoor Attacks to Lane Detection Systems in Autonomous Driving](https://arxiv.org/abs/2203.00858)
+- **`backdoor`** (4) — [BadVLA](https://github.com/Zxy-MLlab/BadVLA), [Can We Trust Embodied Agents? Backdoor Attacks against Embodied LLM Decision-Making](https://github.com/ASGuard-UCI/BALD), [TrojanRobot](https://arxiv.org/abs/2411.11683), [Physical Backdoor Attacks to Lane Detection Systems in Autonomous Driving](https://arxiv.org/abs/2203.00858)
 - **`camera`** (3) — [ControlLoc](https://dl.acm.org/doi/10.1145/3719027.3744842), [Investigating Physical Latency Attacks against Camera-based Perception](https://github.com/purseclab/DetStorm), [Poltergeist](https://ieeexplore.ieee.org/document/9519387)
+- **`control-bus`** (1) — [Sensor Deprivation Attacks for Stealthy UAV Manipulation](https://arxiv.org/abs/2410.11131)
 - **`cooperative-perception`** (1) — [From Threat to Trust](https://zenodo.org/records/16740921)
+- **`decision-making`** (1) — [Can We Trust Embodied Agents? Backdoor Attacks against Embodied LLM Decision-Making](https://github.com/ASGuard-UCI/BALD)
 - **`distributed-training`** (1) — [Machine Learning with Adversaries](https://papers.nips.cc/paper/2017/hash/f4b9ec30ad9f68f89b29639786cb62ef-Abstract.html)
-- **`drone`** (2) — [FlyTrap](https://github.com/ASGuard-UCI/FlyTrap), [Rocking Drones with Intentional Sound Noise on Gyroscopic Sensors](https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/son)
+- **`drone`** (5) — [FlyTrap](https://github.com/ASGuard-UCI/FlyTrap), [ConfuSenSe](https://www.usenix.org/conference/vehiclesec25/presentation/erba), [Sensor Deprivation Attacks for Stealthy UAV Manipulation](https://arxiv.org/abs/2410.11131), [Injected and Delivered](https://www.usenix.org/conference/usenixsecurity18/presentation/tu), [Rocking Drones with Intentional Sound Noise on Gyroscopic Sensors](https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/son)
 - **`edge`** (1) — [Neural Network Extraction Through Physical Side Channels](https://www.usenix.org/conference/usenixsecurity24/presentation/horvath)
-- **`embodied-llm`** (3) — [BadRobot](https://arxiv.org/abs/2407.20242), [Exploring the Adversarial Vulnerabilities of Vision-Language-Action Models in Robotics](https://github.com/William-wAng618/roboticAttack), [Jailbreaking LLM-Controlled Robots](https://arxiv.org/abs/2410.13691)
+- **`embodied-llm`** (4) — [BadRobot](https://arxiv.org/abs/2407.20242), [Can We Trust Embodied Agents? Backdoor Attacks against Embodied LLM Decision-Making](https://github.com/ASGuard-UCI/BALD), [Exploring the Adversarial Vulnerabilities of Vision-Language-Action Models in Robotics](https://github.com/William-wAng618/roboticAttack), [Jailbreaking LLM-Controlled Robots](https://arxiv.org/abs/2410.13691)
 - **`federated`** (1) — [Machine Learning with Adversaries](https://papers.nips.cc/paper/2017/hash/f4b9ec30ad9f68f89b29639786cb62ef-Abstract.html)
 - **`gps`** (1) — [All Your GPS Are Belong To Us](https://www.usenix.org/conference/usenixsecurity18/presentation/zeng)
 - **`hd-map`** (1) — [Asymmetry Vulnerability and Physical Attacks on Online Map Construction for Autonomous Driving](https://github.com/kyrie-louy/physical-online-map-attack)
+- **`inertial-sensor`** (1) — [Injected and Delivered](https://www.usenix.org/conference/usenixsecurity18/presentation/tu)
 - **`lane-detection`** (1) — [Physical Backdoor Attacks to Lane Detection Systems in Autonomous Driving](https://arxiv.org/abs/2203.00858)
 - **`lane-keeping`** (1) — [Dirty Road Can Attack](https://github.com/ASGuard-UCI/DRP-attack)
 - **`latency`** (1) — [Investigating Physical Latency Attacks against Camera-based Perception](https://github.com/purseclab/DetStorm)
 - **`lidar`** (8) — [Seeing is Deceiving](https://arxiv.org/abs/2509.17253), [Invisible but Detected](https://zenodo.org/records/15120571), [On the Realism of LiDAR Spoofing Attacks against AD Vehicle at High Speed and Long Distance](https://www.ndss-symposium.org/ndss-paper/on-the-realism-of-lidar-spoofing-attacks-against-autonomous-driving-vehicle-at-high-speed-and-long-distance/), [PhantomLiDAR](https://arxiv.org/abs/2409.17907), [Towards Real-Time Defense against Object-Based LiDAR Attacks in Autonomous Driving](https://doi.org/10.1145/3719027.3765227), [Invisible for both Camera and LiDAR](https://github.com/ASGuard-UCI/MSF-ADV), [Towards Robust LiDAR-based Perception](https://arxiv.org/abs/2006.16974), [Adversarial Sensor Attack on LiDAR-based Perception in Autonomous Driving](https://arxiv.org/abs/1907.06826)
 - **`localization`** (1) — [The Ghost Navigator](https://github.com/msafdemo/MSAF)
-- **`mems`** (1) — [Rocking Drones with Intentional Sound Noise on Gyroscopic Sensors](https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/son)
+- **`low-level`** (3) — [ConfuSenSe](https://www.usenix.org/conference/vehiclesec25/presentation/erba), [Sensor Deprivation Attacks for Stealthy UAV Manipulation](https://arxiv.org/abs/2410.11131), [Injected and Delivered](https://www.usenix.org/conference/usenixsecurity18/presentation/tu)
+- **`mems`** (2) — [Injected and Delivered](https://www.usenix.org/conference/usenixsecurity18/presentation/tu), [Rocking Drones with Intentional Sound Noise on Gyroscopic Sensors](https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/son)
 - **`model-extraction`** (1) — [Neural Network Extraction Through Physical Side Channels](https://www.usenix.org/conference/usenixsecurity24/presentation/horvath)
 - **`navigation`** (1) — [All Your GPS Are Belong To Us](https://www.usenix.org/conference/usenixsecurity18/presentation/zeng)
 - **`object-detection`** (2) — [ControlLoc](https://dl.acm.org/doi/10.1145/3719027.3744842), [ShapeShifter](https://github.com/shangtse/robust-physical-attack)
 - **`perception`** (6) — [Asymmetry Vulnerability and Physical Attacks on Online Map Construction for Autonomous Driving](https://github.com/kyrie-louy/physical-online-map-attack), [Shape-Invariant 3D Adversarial Point Clouds](https://github.com/shikiw/SI-Adv), [AdvPC](https://github.com/ajhamdi/AdvPC), [Certified Adversarial Robustness via Randomized Smoothing](https://github.com/locuslab/smoothing), [Generating 3D Adversarial Point Clouds](https://github.com/xiangchong1/3d-adv-pc), [Robust Physical-World Attacks on Deep Learning Visual Classification](https://github.com/evtimovi/robust_physical_perturbations)
+- **`physical`** (1) — [TrojanRobot](https://arxiv.org/abs/2411.11683)
 - **`planning`** (1) — [Too Afraid to Drive](https://arxiv.org/abs/2201.04610)
 - **`point-cloud`** (3) — [Shape-Invariant 3D Adversarial Point Clouds](https://github.com/shikiw/SI-Adv), [AdvPC](https://github.com/ajhamdi/AdvPC), [Generating 3D Adversarial Point Clouds](https://github.com/xiangchong1/3d-adv-pc)
 - **`privacy`** (1) — [Deep Learning with Differential Privacy](https://github.com/tensorflow/privacy)
 - **`reinforcement-learning`** (1) — [TrojDRL](https://github.com/pkiourti/rl_backdoor)
 - **`robot`** (1) — [Jailbreaking LLM-Controlled Robots](https://arxiv.org/abs/2410.13691)
 - **`robot-control`** (1) — [TrojDRL](https://github.com/pkiourti/rl_backdoor)
-- **`robot-manipulation`** (2) — [BadRobot](https://arxiv.org/abs/2407.20242), [Exploring the Adversarial Vulnerabilities of Vision-Language-Action Models in Robotics](https://github.com/William-wAng618/roboticAttack)
+- **`robot-manipulation`** (4) — [BadRobot](https://arxiv.org/abs/2407.20242), [BadVLA](https://github.com/Zxy-MLlab/BadVLA), [TrojanRobot](https://arxiv.org/abs/2411.11683), [Exploring the Adversarial Vulnerabilities of Vision-Language-Action Models in Robotics](https://github.com/William-wAng618/roboticAttack)
 - **`robustness`** (1) — [Certified Adversarial Robustness via Randomized Smoothing](https://github.com/locuslab/smoothing)
-- **`sensor`** (3) — [PhantomLiDAR](https://arxiv.org/abs/2409.17907), [Poltergeist](https://ieeexplore.ieee.org/document/9519387), [Rocking Drones with Intentional Sound Noise on Gyroscopic Sensors](https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/son)
+- **`sensor`** (5) — [ConfuSenSe](https://www.usenix.org/conference/vehiclesec25/presentation/erba), [PhantomLiDAR](https://arxiv.org/abs/2409.17907), [Sensor Deprivation Attacks for Stealthy UAV Manipulation](https://arxiv.org/abs/2410.11131), [Poltergeist](https://ieeexplore.ieee.org/document/9519387), [Rocking Drones with Intentional Sound Noise on Gyroscopic Sensors](https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/son)
 - **`sensor-fusion`** (1) — [Invisible for both Camera and LiDAR](https://github.com/ASGuard-UCI/MSF-ADV)
 - **`side-channel`** (1) — [Neural Network Extraction Through Physical Side Channels](https://www.usenix.org/conference/usenixsecurity24/presentation/horvath)
 - **`simulation`** (1) — [CARLA](https://github.com/carla-simulator/carla)
 - **`sok`** (1) — [SoK](https://arxiv.org/abs/2203.05314)
 - **`traffic-sign`** (1) — [Revisiting Physical-World Adversarial Attack on Traffic Sign Recognition](https://arxiv.org/abs/2409.09860)
 - **`training`** (1) — [Deep Learning with Differential Privacy](https://github.com/tensorflow/privacy)
-- **`uav`** (1) — [FlyTrap](https://github.com/ASGuard-UCI/FlyTrap)
+- **`uav`** (3) — [FlyTrap](https://github.com/ASGuard-UCI/FlyTrap), [ConfuSenSe](https://www.usenix.org/conference/vehiclesec25/presentation/erba), [Sensor Deprivation Attacks for Stealthy UAV Manipulation](https://arxiv.org/abs/2410.11131)
 - **`v2x`** (1) — [From Threat to Trust](https://zenodo.org/records/16740921)
 - **`visual-tracking`** (1) — [FlyTrap](https://github.com/ASGuard-UCI/FlyTrap)
-- **`vla`** (1) — [Exploring the Adversarial Vulnerabilities of Vision-Language-Action Models in Robotics](https://github.com/William-wAng618/roboticAttack)
+- **`vla`** (2) — [BadVLA](https://github.com/Zxy-MLlab/BadVLA), [Exploring the Adversarial Vulnerabilities of Vision-Language-Action Models in Robotics](https://github.com/William-wAng618/roboticAttack)
+- **`vlm`** (1) — [TrojanRobot](https://arxiv.org/abs/2411.11683)
 
 ## Papers by stage
 
@@ -109,6 +118,10 @@ _Sensing the physical world — cameras, LiDAR, radar, IMU/GPS, logs._
   USENIX Security 2026  
   [📄 paper](https://arxiv.org/abs/2509.17253)  
   `autonomous-driving` `lidar`
+- 🗡️ **[ConfuSenSe: Sensor Reconfiguration Attacks for Stealthy UAV Manipulation](https://www.usenix.org/conference/vehiclesec25/presentation/erba)** — Reconfigures COTS flight-controller sensors so the controller acts on stale/attacker-shaped readings.  
+  _Erba, et al._. USENIX VehicleSec 2025  
+  [📄 paper](https://www.usenix.org/conference/vehiclesec25/presentation/erba)  
+  `low-level` `drone` `uav` `sensor`
 - 🗡️ **[On the Realism of LiDAR Spoofing Attacks against AD Vehicle at High Speed and Long Distance](https://www.ndss-symposium.org/ndss-paper/on-the-realism-of-lidar-spoofing-attacks-against-autonomous-driving-vehicle-at-high-speed-and-long-distance/)** — Moving-vehicle auto-aiming spoofer removes obstacles at 60 km/h from 110 m (>=96% ASR).  
   _Wang, Xie, Sato, Luo, Xu, Chen_. NDSS 2025  
   [📄 paper](https://www.ndss-symposium.org/ndss-paper/on-the-realism-of-lidar-spoofing-attacks-against-autonomous-driving-vehicle-at-high-speed-and-long-distance/)  
@@ -117,17 +130,37 @@ _Sensing the physical world — cameras, LiDAR, radar, IMU/GPS, logs._
   _Jin, et al._. NDSS 2025  
   [📄 paper](https://arxiv.org/abs/2409.17907)  
   `autonomous-driving` `lidar` `sensor`
+- 🗡️ **[Sensor Deprivation Attacks for Stealthy UAV Manipulation](https://arxiv.org/abs/2410.11131)** — A single bus message reconfigures a sensor's update rate to bias control — persists after the attacker leaves.  
+  _Erba, et al._. arXiv 2024  
+  [📄 paper](https://arxiv.org/abs/2410.11131)  
+  `low-level` `drone` `uav` `sensor` `control-bus`
 - 🗡️ **[Poltergeist: Acoustic Adversarial ML against Cameras and Computer Vision](https://ieeexplore.ieee.org/document/9519387)** — Acoustic injection into image-stabilization blurs frames to create/hide/move detected objects.  
   _Ji, Zhang, Ji, Chen, Zhang, Cheng, Xu_. IEEE S&P 2021  
   [📄 paper](https://ieeexplore.ieee.org/document/9519387)  
   `autonomous-driving` `camera` `sensor`
+- 🗡️ **[Injected and Delivered: Fabricating Implicit Control over Actuation Systems by Spoofing Inertial Sensors](https://www.usenix.org/conference/usenixsecurity18/presentation/tu)** — Out-of-band acoustic injection forges IMU readings to implicitly steer 17/25 embedded actuation systems.  
+  _Tu, Lin, Lee, Hei_. USENIX Security 2018  
+  [📄 paper](https://www.usenix.org/conference/usenixsecurity18/presentation/tu)  
+  `low-level` `mems` `inertial-sensor` `actuator` `drone`
 
 #### Data collection · Availability
 
+- 🗡️ **[ConfuSenSe: Sensor Reconfiguration Attacks for Stealthy UAV Manipulation](https://www.usenix.org/conference/vehiclesec25/presentation/erba)** — Reconfigures COTS flight-controller sensors so the controller acts on stale/attacker-shaped readings.  
+  _Erba, et al._. USENIX VehicleSec 2025  
+  [📄 paper](https://www.usenix.org/conference/vehiclesec25/presentation/erba)  
+  `low-level` `drone` `uav` `sensor`
 - 🗡️ **[PhantomLiDAR: Cross-modality Signal Injection Attacks against LiDAR](https://arxiv.org/abs/2409.17907)** — Electromagnetic (cross-modality) injection manipulates LiDAR points without any laser transmitter.  
   _Jin, et al._. NDSS 2025  
   [📄 paper](https://arxiv.org/abs/2409.17907)  
   `autonomous-driving` `lidar` `sensor`
+- 🗡️ **[Sensor Deprivation Attacks for Stealthy UAV Manipulation](https://arxiv.org/abs/2410.11131)** — A single bus message reconfigures a sensor's update rate to bias control — persists after the attacker leaves.  
+  _Erba, et al._. arXiv 2024  
+  [📄 paper](https://arxiv.org/abs/2410.11131)  
+  `low-level` `drone` `uav` `sensor` `control-bus`
+- 🗡️ **[Injected and Delivered: Fabricating Implicit Control over Actuation Systems by Spoofing Inertial Sensors](https://www.usenix.org/conference/usenixsecurity18/presentation/tu)** — Out-of-band acoustic injection forges IMU readings to implicitly steer 17/25 embedded actuation systems.  
+  _Tu, Lin, Lee, Hei_. USENIX Security 2018  
+  [📄 paper](https://www.usenix.org/conference/usenixsecurity18/presentation/tu)  
+  `low-level` `mems` `inertial-sensor` `actuator` `drone`
 - 🗡️ **[Rocking Drones with Intentional Sound Noise on Gyroscopic Sensors](https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/son)** — Resonant acoustic noise saturates MEMS gyroscopes and crashes drones out of the sky.  
   _Son, Shin, Kim, Park, Noh, Choi, Choi, Kim_. USENIX Security 2015  
   [📄 paper](https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/son)  
@@ -139,6 +172,10 @@ _Sensing the physical world — cameras, LiDAR, radar, IMU/GPS, logs._
   USENIX Security 2026  
   [📄 paper](https://arxiv.org/abs/2509.17253)  
   `autonomous-driving` `lidar`
+- 🗡️ **[ConfuSenSe: Sensor Reconfiguration Attacks for Stealthy UAV Manipulation](https://www.usenix.org/conference/vehiclesec25/presentation/erba)** — Reconfigures COTS flight-controller sensors so the controller acts on stale/attacker-shaped readings.  
+  _Erba, et al._. USENIX VehicleSec 2025  
+  [📄 paper](https://www.usenix.org/conference/vehiclesec25/presentation/erba)  
+  `low-level` `drone` `uav` `sensor`
 - 🗡️ **[On the Realism of LiDAR Spoofing Attacks against AD Vehicle at High Speed and Long Distance](https://www.ndss-symposium.org/ndss-paper/on-the-realism-of-lidar-spoofing-attacks-against-autonomous-driving-vehicle-at-high-speed-and-long-distance/)** — Moving-vehicle auto-aiming spoofer removes obstacles at 60 km/h from 110 m (>=96% ASR).  
   _Wang, Xie, Sato, Luo, Xu, Chen_. NDSS 2025  
   [📄 paper](https://www.ndss-symposium.org/ndss-paper/on-the-realism-of-lidar-spoofing-attacks-against-autonomous-driving-vehicle-at-high-speed-and-long-distance/)  
@@ -147,10 +184,18 @@ _Sensing the physical world — cameras, LiDAR, radar, IMU/GPS, logs._
   _Jin, et al._. NDSS 2025  
   [📄 paper](https://arxiv.org/abs/2409.17907)  
   `autonomous-driving` `lidar` `sensor`
+- 🗡️ **[Sensor Deprivation Attacks for Stealthy UAV Manipulation](https://arxiv.org/abs/2410.11131)** — A single bus message reconfigures a sensor's update rate to bias control — persists after the attacker leaves.  
+  _Erba, et al._. arXiv 2024  
+  [📄 paper](https://arxiv.org/abs/2410.11131)  
+  `low-level` `drone` `uav` `sensor` `control-bus`
 - 🗡️ **[Poltergeist: Acoustic Adversarial ML against Cameras and Computer Vision](https://ieeexplore.ieee.org/document/9519387)** — Acoustic injection into image-stabilization blurs frames to create/hide/move detected objects.  
   _Ji, Zhang, Ji, Chen, Zhang, Cheng, Xu_. IEEE S&P 2021  
   [📄 paper](https://ieeexplore.ieee.org/document/9519387)  
   `autonomous-driving` `camera` `sensor`
+- 🗡️ **[Injected and Delivered: Fabricating Implicit Control over Actuation Systems by Spoofing Inertial Sensors](https://www.usenix.org/conference/usenixsecurity18/presentation/tu)** — Out-of-band acoustic injection forges IMU readings to implicitly steer 17/25 embedded actuation systems.  
+  _Tu, Lin, Lee, Hei_. USENIX Security 2018  
+  [📄 paper](https://www.usenix.org/conference/usenixsecurity18/presentation/tu)  
+  `low-level` `mems` `inertial-sensor` `actuator` `drone`
 - 🗡️ **[Rocking Drones with Intentional Sound Noise on Gyroscopic Sensors](https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/son)** — Resonant acoustic noise saturates MEMS gyroscopes and crashes drones out of the sky.  
   _Son, Shin, Kim, Park, Noh, Choi, Choi, Kim_. USENIX Security 2015  
   [📄 paper](https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/son)  
@@ -169,6 +214,18 @@ _Optimization, (self-)supervision, RL, distributed/federated training._
 
 #### Model training · Integrity
 
+- 🗡️ **[BadVLA: Backdoor Attacks on Vision-Language-Action Models via Objective-Decoupled Optimization](https://github.com/Zxy-MLlab/BadVLA)** — First systematic VLA backdoor; near-100% ASR on OpenVLA/LIBERO with minimal clean-task impact.  
+  _Zhou, et al._. NeurIPS 2025  
+  [📄 paper](https://arxiv.org/abs/2505.16640) · [💻 code](https://github.com/Zxy-MLlab/BadVLA)  
+  `vla` `robot-manipulation` `backdoor`
+- 🗡️ **[Can We Trust Embodied Agents? Backdoor Attacks against Embodied LLM Decision-Making (BALD)](https://github.com/ASGuard-UCI/BALD)** — Word/scenario/knowledge-injection backdoors make embodied LLM planners take unsafe actions on a trigger.  
+  _Jiao, Xie, Yue, Sato, Wang, Wang, Chen, Zhu_. ICLR 2025  
+  [📄 paper](https://arxiv.org/abs/2405.20774) · [💻 code](https://github.com/ASGuard-UCI/BALD)  
+  `embodied-llm` `decision-making` `backdoor`
+- 🗡️ **[TrojanRobot: Physical-World Backdoor Attacks Against VLM-based Robotic Manipulation](https://arxiv.org/abs/2411.11683)** — Embeds a backdoor in the modular robot policy (LVLM-as-backdoor); validated physically on a UR3e arm.  
+  _Wang, et al._. arXiv 2025  
+  [📄 paper](https://arxiv.org/abs/2411.11683) · [🌐 project](https://trojanrobot.github.io)  
+  `vlm` `robot-manipulation` `backdoor` `physical`
 - 🗡️ **[Physical Backdoor Attacks to Lane Detection Systems in Autonomous Driving](https://arxiv.org/abs/2203.00858)** — Poison/clean-annotation backdoors trigger lane mis-detection via common objects (e.g. traffic cones).  
   _Han, Xu, Liu, Zhang, Zhang, Zhang_. ACM MM 2022  
   [📄 paper](https://arxiv.org/abs/2203.00858) · [🌐 project](https://sites.google.com/view/lane-detection-attack/lda)  
@@ -191,6 +248,18 @@ _Optimization, (self-)supervision, RL, distributed/federated training._
 
 #### Model training · Safety
 
+- 🗡️ **[BadVLA: Backdoor Attacks on Vision-Language-Action Models via Objective-Decoupled Optimization](https://github.com/Zxy-MLlab/BadVLA)** — First systematic VLA backdoor; near-100% ASR on OpenVLA/LIBERO with minimal clean-task impact.  
+  _Zhou, et al._. NeurIPS 2025  
+  [📄 paper](https://arxiv.org/abs/2505.16640) · [💻 code](https://github.com/Zxy-MLlab/BadVLA)  
+  `vla` `robot-manipulation` `backdoor`
+- 🗡️ **[Can We Trust Embodied Agents? Backdoor Attacks against Embodied LLM Decision-Making (BALD)](https://github.com/ASGuard-UCI/BALD)** — Word/scenario/knowledge-injection backdoors make embodied LLM planners take unsafe actions on a trigger.  
+  _Jiao, Xie, Yue, Sato, Wang, Wang, Chen, Zhu_. ICLR 2025  
+  [📄 paper](https://arxiv.org/abs/2405.20774) · [💻 code](https://github.com/ASGuard-UCI/BALD)  
+  `embodied-llm` `decision-making` `backdoor`
+- 🗡️ **[TrojanRobot: Physical-World Backdoor Attacks Against VLM-based Robotic Manipulation](https://arxiv.org/abs/2411.11683)** — Embeds a backdoor in the modular robot policy (LVLM-as-backdoor); validated physically on a UR3e arm.  
+  _Wang, et al._. arXiv 2025  
+  [📄 paper](https://arxiv.org/abs/2411.11683) · [🌐 project](https://trojanrobot.github.io)  
+  `vlm` `robot-manipulation` `backdoor` `physical`
 - 🗡️ **[Physical Backdoor Attacks to Lane Detection Systems in Autonomous Driving](https://arxiv.org/abs/2203.00858)** — Poison/clean-annotation backdoors trigger lane mis-detection via common objects (e.g. traffic cones).  
   _Han, Xu, Liu, Zhang, Zhang, Zhang_. ACM MM 2022  
   [📄 paper](https://arxiv.org/abs/2203.00858) · [🌐 project](https://sites.google.com/view/lane-detection-attack/lda)  
@@ -438,8 +507,8 @@ _Buses, components, APIs, networking across the cyber-physical system._
 
 ## Stats
 
-- **36** papers — 🗡️ 28 attacks, 🛡️ 6 defenses.
-- **18/36** (50%) ship public **code**.
+- **42** papers — 🗡️ 34 attacks, 🛡️ 6 defenses.
+- **20/42** (48%) ship public **code**.
 
 ## Contributing
 
@@ -449,4 +518,4 @@ Add a paper by editing [`data/papers.yml`](data/papers.yml) and running `python3
 
 [CC0-1.0](LICENSE) — to the extent possible under law, dedicated to the public domain.
 
-<sub>Generated by `scripts/generate_readme.py` on 2026-09-20. Do not edit README.md by hand.</sub>
+<sub>Generated by `scripts/generate_readme.py` on 2026-09-21. Do not edit README.md by hand.</sub>

@@ -452,3 +452,79 @@ papers:
     domains: [autonomous-driving, traffic-sign]
     tldr: "First large-scale measurement of physical TSR attacks on commercial systems — reliable but not generalizable."
     paper: "https://arxiv.org/abs/2409.09860"
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # Embodied / VLA backdoors and low-level sensor/actuator attacks
+  # (drone/UAV, robot manipulation, embodied-VLA, CPS hardware layer)
+  # ═══════════════════════════════════════════════════════════════════════════
+
+  # ── Embodied-LLM / VLA backdoors (training-time implant) ────────────────────
+  - title: "Can We Trust Embodied Agents? Backdoor Attacks against Embodied LLM Decision-Making (BALD)"
+    authors: "Jiao, Xie, Yue, Sato, Wang, Wang, Chen, Zhu"
+    venue: "ICLR"
+    year: 2025
+    stage: model-training
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [embodied-llm, decision-making, backdoor]
+    tldr: "Word/scenario/knowledge-injection backdoors make embodied LLM planners take unsafe actions on a trigger."
+    paper: "https://arxiv.org/abs/2405.20774"
+    code: "https://github.com/ASGuard-UCI/BALD"
+
+  - title: "BadVLA: Backdoor Attacks on Vision-Language-Action Models via Objective-Decoupled Optimization"
+    authors: "Zhou, et al."
+    venue: "NeurIPS"
+    year: 2025
+    stage: model-training
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [vla, robot-manipulation, backdoor]
+    tldr: "First systematic VLA backdoor; near-100% ASR on OpenVLA/LIBERO with minimal clean-task impact."
+    paper: "https://arxiv.org/abs/2505.16640"
+    code: "https://github.com/Zxy-MLlab/BadVLA"
+
+  - title: "TrojanRobot: Physical-World Backdoor Attacks Against VLM-based Robotic Manipulation"
+    authors: "Wang, et al."
+    venue: "arXiv"
+    year: 2025
+    stage: model-training
+    objectives: [Integrity, Safety]
+    kind: attack
+    domains: [vlm, robot-manipulation, backdoor, physical]
+    tldr: "Embeds a backdoor in the modular robot policy (LVLM-as-backdoor); validated physically on a UR3e arm."
+    paper: "https://arxiv.org/abs/2411.11683"
+    project: "https://trojanrobot.github.io"
+
+  # ── Low-level: inertial-sensor / actuator injection (CPS hardware layer) ─────
+  - title: "Injected and Delivered: Fabricating Implicit Control over Actuation Systems by Spoofing Inertial Sensors"
+    authors: "Tu, Lin, Lee, Hei"
+    venue: "USENIX Security"
+    year: 2018
+    stage: data-collection
+    objectives: [Integrity, Availability, Safety]
+    kind: attack
+    domains: [low-level, mems, inertial-sensor, actuator, drone]
+    tldr: "Out-of-band acoustic injection forges IMU readings to implicitly steer 17/25 embedded actuation systems."
+    paper: "https://www.usenix.org/conference/usenixsecurity18/presentation/tu"
+
+  - title: "Sensor Deprivation Attacks for Stealthy UAV Manipulation"
+    authors: "Erba, et al."
+    venue: "arXiv"
+    year: 2024
+    stage: data-collection
+    objectives: [Integrity, Availability, Safety]
+    kind: attack
+    domains: [low-level, drone, uav, sensor, control-bus]
+    tldr: "A single bus message reconfigures a sensor's update rate to bias control — persists after the attacker leaves."
+    paper: "https://arxiv.org/abs/2410.11131"
+
+  - title: "ConfuSenSe: Sensor Reconfiguration Attacks for Stealthy UAV Manipulation"
+    authors: "Erba, et al."
+    venue: "USENIX VehicleSec"
+    year: 2025
+    stage: data-collection
+    objectives: [Integrity, Availability, Safety]
+    kind: attack
+    domains: [low-level, drone, uav, sensor]
+    tldr: "Reconfigures COTS flight-controller sensors so the controller acts on stale/attacker-shaped readings."
+    paper: "https://www.usenix.org/conference/vehiclesec25/presentation/erba"
