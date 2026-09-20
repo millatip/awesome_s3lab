@@ -41,3 +41,33 @@ kinds:
   defense:   { emoji: "🛡️",  label: Defense }
   benchmark: { emoji: "📊",  label: Benchmark / dataset / tool }
   survey:    { emoji: "📚",  label: Survey / SoK }
+
+# Physical-AI platform / embodiment. Inferred per paper from `domains` (first
+# category in `category_priority` whose `match` shares a domain wins). A paper
+# may override with an explicit `category:` id. `general` is the fallback for
+# platform-agnostic work (e.g. a training-time privacy or robustness defense).
+categories:
+  - id: av
+    emoji: "🚗"
+    label: Autonomous vehicle
+    match: [autonomous-driving, lane-detection, lane-keeping, traffic-sign, hd-map, cooperative-perception, v2x, localization, planning, navigation, gps]
+  - id: drone
+    emoji: "🚁"
+    label: Drone / UAV
+    match: [drone, uav]
+  - id: robot
+    emoji: "🦾"
+    label: Robot
+    match: [robot-manipulation, robot-control, robot, reinforcement-learning]
+  - id: vla
+    emoji: "🤖"
+    label: Embodied LLM / VLA
+    match: [vla, vlm, embodied-llm, decision-making]
+  - id: general
+    emoji: "⚙️"
+    label: Cross-cutting
+    match: []
+
+# Overlap resolution order (most specific first): a VLM-driven robot is VLA, a
+# drone beats a generic robot, AV is broad so it comes late, general is last.
+category_priority: [vla, drone, robot, av, general]

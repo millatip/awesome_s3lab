@@ -62,12 +62,13 @@ def sort_key(p):
     return (-int(p.get("year", 0)), p.get("title", ""))
 
 
-def render_entry(p, kinds):
+def render_entry(p, kinds, cat=None):
     emoji = kinds.get(p.get("kind"), {}).get("emoji", "•")
+    cat_e = f"{cat['emoji']} " if cat else ""
     title = p["title"]
     link = p.get("code") or p.get("paper") or p.get("project") or ""
     head = f"[{title}]({link})" if link else title
-    line = [f"- {emoji} **{head}**"]
+    line = [f"- {emoji} {cat_e}**{head}**"]
     if p.get("tldr"):
         line.append(f" — {p['tldr']}")
     line.append("  ")  # markdown line break
@@ -103,6 +104,21 @@ def build(tax, papers):
         "Safety": "🚦",
     }
     stage_label = {s["id"]: s["label"] for s in stages}
+    categories = tax.get("categories", [])
+    cat_by_id = {c["id"]: c for c in categories}
+    cat_priority = tax.get("category_priority", [c["id"] for c in categories])
+    fallback_cat = {"id": "general", "emoji": "⚙️", "label": "Cross-cutting"}
+
+    def category_of(p):
+        cid = p.get("category")
+        if not cid:
+            doms = set(p.get("domains", []))
+            cid = next(
+                (c for c in cat_priority
+                 if doms & set(cat_by_id.get(c, {}).get("match", []))),
+                "general",
+            )
+        return cat_by_id.get(cid, fallback_cat)
 
     total = len(papers)
     with_code = sum(1 for p in papers if p.get("code"))
@@ -139,6 +155,9 @@ def build(tax, papers):
         "⚡ Availability (stay up under DoS) · "
         "🚦 Safety (don't take unsafe physical action)\n"
     )
+    if categories:
+        A("**Platform** — " + " · ".join(
+            f"{c['emoji']} {c['label']}" for c in categories) + "\n")
     A("**Links** — 📄 paper · 💻 code · 🌐 project page\n")
 
     # ── Matrix ────────────────────────────────────────────────────────────
@@ -169,14 +188,16 @@ def build(tax, papers):
     coded = sorted([p for p in papers if p.get("code")], key=sort_key)
     A("## ⭐ Papers with code\n")
     A("The reason this list exists — every row ships a public implementation.\n")
-    A("| Paper | Stage | Objectives | Venue | Code |")
-    A("| --- | --- | --- | --- | --- |")
+    A("| Paper | Platform | Stage | Objectives | Venue | Code |")
+    A("| --- | --- | --- | --- | --- | --- |")
     for p in coded:
         objs = " ".join(obj_emoji.get(o, o) for o in p.get("objectives", []))
         emoji = kinds.get(p.get("kind"), {}).get("emoji", "•")
+        cat = category_of(p)
         vy = " ".join(str(x) for x in [p.get("venue"), p.get("year")] if x)
         A(
             f"| {emoji} [{p['title']}]({p.get('paper') or p['code']}) "
+            f"| {cat['emoji']} {cat['label']} "
             f"| {stage_label.get(p['stage'], p['stage'])} | {objs} | {vy} "
             f"| [💻]({p['code']}) |"
         )
@@ -214,7 +235,7 @@ def build(tax, papers):
             # NB: heading text must stay in sync with github_slug() call above.
             A(f"#### {s['label']} · {o}\n")
             for p in entries:
-                A(render_entry(p, kinds))
+                A(render_entry(p, kinds, category_of(p)))
             A("")
 
     # ── Footer ────────────────────────────────────────────────────────────
@@ -222,6 +243,15 @@ def build(tax, papers):
     A(f"- **{total}** papers — 🗡️ {n_attack} attacks, 🛡️ {n_defense} defenses.")
     pct = round(100 * with_code / total) if total else 0
     A(f"- **{with_code}/{total}** ({pct}%) ship public **code**.")
+    if categories:
+        counts = {c["id"]: 0 for c in categories}
+        for p in papers:
+            counts[category_of(p)["id"]] = counts.get(category_of(p)["id"], 0) + 1
+        line = " · ".join(
+            f"{c['emoji']} {c['label']} {counts.get(c['id'], 0)}"
+            for c in categories if counts.get(c["id"], 0)
+        )
+        A(f"- By platform — {line}.")
     A("")
     A("## Contributing\n")
     A(

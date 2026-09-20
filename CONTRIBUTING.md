@@ -20,7 +20,13 @@ so you never edit `README.md` directly.
      paper: "https://arxiv.org/abs/...."
      code: "https://github.com/....."       # OMIT if there is no public repo
      project: "https://...."                # optional website when there's no code
+     # category: robot                      # optional override; usually inferred from domains
    ```
+
+   The **Platform** column (🚗 AV · 🚁 Drone/UAV · 🦾 Robot · 🤖 Embodied LLM/VLA ·
+   ⚙️ Cross-cutting) is inferred automatically from your `domains` tags — add a tag
+   like `drone`, `vla`, or `autonomous-driving` and it classifies itself. Only set
+   an explicit `category:` id (from `data/taxonomy.yml`) when the inference is wrong.
 
 2. Regenerate and check:
 
