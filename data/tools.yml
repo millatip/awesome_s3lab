@@ -199,3 +199,20 @@ tools:
     type: library
     domains: [gps, spoofing, low-level, drone]
     tldr: "Generates GPS L1 C/A baseband for SDRs — the go-to for reproducible GPS-spoofing experiments."
+
+  # ── This lab: CAI-Embodied runtime shield (C1 + C2) ────────────────────────
+  - name: "CAI-Embodied · policy attestation (C1)"
+    url: "https://github.com/millatip/cai-embodied"
+    stage: model-deployment
+    objectives: [Integrity]
+    type: library
+    domains: [robot, embodied, vla, low-level, attestation, s3lab]
+    tldr: "Behavioral fingerprint that detects a tampered/back-doored policy on the edge while tolerating quantization."
+
+  - name: "CAI-Embodied · action guardrail (C2)"
+    url: "https://github.com/millatip/cai-embodied"
+    stage: inference
+    objectives: [Integrity, Safety]
+    type: library
+    domains: [robot, embodied, vla, low-level, guardrail, s3lab]
+    tldr: "Model-agnostic safety-envelope veto + safe-hold at the actuator boundary, packaged as a CAI extension."

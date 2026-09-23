@@ -581,9 +581,9 @@ Reusable tooling on the **same axes** — to build, attack, defend, simulate and
 | **Data processing** | — | — | — | — |
 | **Model construction** | — | — | — | — |
 | **Model training** | [🧰2](#tools-model-training--confidentiality) | [🧰1](#tools-model-training--integrity) | — | — |
-| **Model deployment** | — | — | — | — |
+| **Model deployment** | — | [🧰1](#tools-model-deployment--integrity) | — | — |
 | **Evaluation** | — | [🧰5 🎮1 📊3](#tools-evaluation--integrity) | — | [🎮4 📊1](#tools-evaluation--safety) |
-| **Inference** | — | — | — | [🏗️1](#tools-inference--safety) |
+| **Inference** | — | [🧰1](#tools-inference--integrity) | — | [🧰1 🏗️1](#tools-inference--safety) |
 | **System architecture** | [🧰2](#tools-system-architecture--confidentiality) | [🧰2](#tools-system-architecture--integrity) | — | [🏗️4](#tools-system-architecture--safety) |
 
 ### Tools: Data collection · Integrity
@@ -607,6 +607,11 @@ Reusable tooling on the **same axes** — to build, attack, defend, simulate and
 
 - 🧰 ⚙️ **[BackdoorBox](https://github.com/THUYimingLi/BackdoorBox)** — Unified toolbox of backdoor attacks and defenses for reproducible evaluation.  
   Library / framework · `backdoor` `poisoning`
+
+### Tools: Model deployment · Integrity
+
+- 🧰 🤖 **[CAI-Embodied · policy attestation (C1)](https://github.com/millatip/cai-embodied)** — Behavioral fingerprint that detects a tampered/back-doored policy on the edge while tolerating quantization.  
+  Library / framework · `robot` `embodied` `vla` `low-level` `attestation` `s3lab`
 
 ### Tools: Evaluation · Integrity
 
@@ -642,8 +647,15 @@ Reusable tooling on the **same axes** — to build, attack, defend, simulate and
 - 🎮 🦾 **[NVIDIA Isaac Lab](https://github.com/isaac-sim/IsaacLab)** — GPU robot-learning framework on Isaac Sim for training and stress-testing policies.  
   Simulator / testbed · `robot-manipulation` `simulation`
 
+### Tools: Inference · Integrity
+
+- 🧰 🤖 **[CAI-Embodied · action guardrail (C2)](https://github.com/millatip/cai-embodied)** — Model-agnostic safety-envelope veto + safe-hold at the actuator boundary, packaged as a CAI extension.  
+  Library / framework · `robot` `embodied` `vla` `low-level` `guardrail` `s3lab`
+
 ### Tools: Inference · Safety
 
+- 🧰 🤖 **[CAI-Embodied · action guardrail (C2)](https://github.com/millatip/cai-embodied)** — Model-agnostic safety-envelope veto + safe-hold at the actuator boundary, packaged as a CAI extension.  
+  Library / framework · `robot` `embodied` `vla` `low-level` `guardrail` `s3lab`
 - 🏗️ 🚗 **[openpilot](https://github.com/commaai/openpilot)** — Production-grade open ADAS — real-world target for lane-keeping / perception attacks.  
   AV / robot stack · `autonomous-driving` `adas` `stack`
 
@@ -677,7 +689,7 @@ Reusable tooling on the **same axes** — to build, attack, defend, simulate and
 - **48** papers — 🗡️ 35 attacks, 🛡️ 11 defenses.
 - **24/48** (50%) ship public **code**.
 - By platform — 🚗 Autonomous vehicle 23 · 🚁 Drone / UAV 9 · 🦾 Robot 3 · 🤖 Embodied LLM / VLA 6 · ⚙️ Cross-cutting 7.
-- Plus **23** open-source tools.
+- Plus **25** open-source tools.
 
 ## Contributing
 
